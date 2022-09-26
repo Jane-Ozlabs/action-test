@@ -1,0 +1,538 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800;900&family=Oswald:wght@300;400;500;600;700&display=swap');
+
+/* default */
+html, body { font-family:'Exo 2', sans-serif; -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:none; -moz-osx-font-smoothing:gratranslate3d(0,0,0)yscale;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,fieldset,p,button,iframe,th,td{margin:0;padding:0;}
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block;margin:0;padding:0;}
+h1,h2,h3,h4,h5,h6,dt{font-weight:normal;}
+img,fieldset,iframe,button{border:0 none;}
+img{ max-width:100%;}
+button{cursor:pointer;background:none}
+button:focus{outline:0;}
+li{list-style:none;}
+button{border:0 none}
+table{ border-collapse:collapse;border-spacing:0; }
+th, td{border-collapse:collapse;}
+a{text-decoration:none;outline-offset:-1px;}
+input{ appearance: none; -webkit-appearance: none; -webkit-border-radius: 0; padding:0; box-sizing:border-box; font-family:'Exo 2', sans-serif;}
+input::placeholder{ color:#3e3e3e;}
+select{ -webkit-appearance: none; -moz-appearance: none; appearance: none; font-family:'Exo 2', sans-serif;}
+select::placeholder{ color:#3e3e3e;}
+textarea{ font-family:'Exo 2', sans-serif;}
+textarea::placeholder{ color:#3e3e3e;}
+.center{ position:relative; width:1110px; margin:0 auto;}
+
+footer{ padding:50px 0 60px; background-color:#f4f4f4;}
+footer .footer_nav{ position:absolute; top:0; right:0;}
+footer .footer_nav li{ display:inline-block; vertical-align:top; margin-left:110px;}
+footer .footer_nav li p{ display:block; width:100%; font-size:16px; font-weight:bold; color:#bfbfbf; margin-bottom:20px;}
+footer .footer_nav li a{ display:block; width:100%; font-size:14px; font-weight:600; color:#878787; margin-top:13px;}
+footer .footer_nav li a:hover{ color:#dc2f00}
+footer .footer_info{}
+footer .footer_info .logo{}
+footer .footer_info .logo img{ width:145px;}
+footer .footer_info .info_text{ font-size:12px; font-weight:500; color:#8f8f8f; line-height:1.5; margin-top:30px; margin-bottom:20px;}
+footer .footer_info .logo_gc{}
+footer .footer_info .logo_gc img{ width:145px;}
+
+.v-application--wrap {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#container{}
+#container .login{ width:420px; margin:150px auto;}
+#container .login .logo{ text-align:center}
+#container .login .logo img{ width:400px;}
+#container .login .textBox{ text-align:center; margin-top:100px}
+#container .login .textBox .title{ font-size:30px; font-weight:500; color:#dc2f00;}
+#container .login .textBox .subTitle{ font-size:16px; font-weight:500; color:#4b4b4b; line-height:1.8; margin-top:30px;}
+#container .login .formBox{ margin-top:100px; padding:0 20px; box-sizing:border-box}
+#container .login .formBox .formText{ font-size:14px; font-weight:500; color:#4b4b4b; line-height:2;}
+#container .login .formBox .formTitle{ font-size:20px; font-weight:bold; color:#dc2f00; margin-top:50px;}
+#container .login .formBox .inputBox{ position:relative; width:100%; height:45px; border-bottom:2px solid #dc2f00; box-sizing:border-box; padding-left:35px; padding-right:40px; margin-top:50px;}
+#container .login .formBox .inputBox .icon{ position:absolute; top:50%; transform:translateY(-50%); left:0; width:25px;}
+#container .login .formBox .inputBox input{ display:block; width:100%; height:100%; box-sizing:border-box; font-size:20px; font-weight:600; color:#3e3e3e; border:none; outline:none; background-color:transparent;}
+#container .login .formBox .inputBox .checked{ position:absolute; top:50%; transform:translateY(-50%); right:10px; height:16px;}
+#container .login .formBox .warningText{ font-size:13px; font-weight:600; color:#dc2f00; line-height:1.6; margin-top:10px; letter-spacing:-0.03em}
+#container .login .checkBox{ position:relative; margin-top:60px;}
+#container .login .checkBox input{ display:none;}
+#container .login .checkBox input + label{ font-size:16px; font-weight:500; color:#565555; padding:5px 0 5px 30px; background-image:url(../img/icon_check_off.png); background-position:left center; background-repeat:no-repeat; background-size:22px;}
+#container .login .checkBox input:checked + label{ background-image:url(../img/icon_check_on.png);}
+#container .login .checkBox .forgotBtn{ position:absolute; top:50%; transform:translateY(-50%); right:0; display:inline-block; font-size:16px; font-weight:500; color:#dc2f00; border-bottom:1px solid #dc2f00}
+#container .login .btnBox{ margin-top:30px; text-align:center;}
+#container .login .btnBox a{ display:inline-block; width:330px; line-height:65px; font-size:24px; font-weight:600; color:#fff; text-align:center; background-color:#dc2f00; border-radius:10px; border-bottom:4px solid #9c1b00;}
+#container .login .marginT{ margin-top:100px;}
+#container .login .marginT a{ width:235px; line-height:55px; font-size:22px;}
+#container .forgot .formBox{ padding:0;}
+#container .forgot .formBox label{ position:absolute; left:-65px; top:50%; transform:translateY(-50%); font-size:20px; font-weight:bold; color:#dc2f00;}
+#container .forgot .formBox .inputBox{ width:calc(100% - 65px); margin-left:65px;}
+#container .forgot .formBox .warningText{ margin-left:65px;}
+#container .change .textBox{ text-align:left;}
+#container .change .textBox .title{ font-size:24px; font-weight:bold;}
+#container .change .textBox .subTitle{ font-size:14px; margin-top:10px;}
+#container .change .formBox .inputBox{ margin-top:5px;}
+
+header{ position:relative; width:100%; padding:25px 30px; box-sizing:border-box;}
+header .logo{ display:inline-block; vertical-align:middle; width:290px; margin-right:50px;}
+header .depth{ display:inline-block; vertical-align:middle; background-color:#f2f2f2; border-radius:10px; padding:0 20px; box-sizing:border-box; font-size:0}
+header .depth span{ position:relative; display:inline-block; vertical-align:middle; line-height:45px; font-size:14px; font-weight:600; color:#6b6b6b; padding-right:35px;}
+header .depth span:last-child{ padding-right:0;}
+header .depth span:before{ content:""; position:absolute; top:50%; transform:translateY(-50%); right:15px; width:8px; height:14px; background-image:url(../img/icon_depthMark.png); background-position:center; background-repeat:no-repeat; background-size:contain;}
+header .depth span:last-child:before{ display:none;}
+header .profile{ position:absolute; top:50%; transform:translateY(-50%); right:40px; padding-left:5px; padding-right:10px; box-sizing:border-box; background-color:#f2f2f2; border-radius:10px; }
+header .profile img{ display:inline-block; vertical-align:middle;}
+header .profile .name{ display:inline-block; vertical-align:middle; line-height:45px; font-size:14px; font-weight:600; color:#6b6b6b; margin-left:8px;}
+header .menuBtn{ display:none;}
+header .menuBtn img{}
+
+nav{ display:inline-block; vertical-align:top; width:210px;}
+nav *{ font-family: 'Oswald', sans-serif;}
+nav .xBtn{ display:none;}
+nav .xBtn img{}
+nav .dateBox{ width:100%; padding:8px 20px; background-color:#ededed; border-radius:10px; box-sizing:border-box}
+nav .dateBox p{ position:relative; display:block; font-size:18px; font-weight:400; color:#5f5f5f; letter-spacing:-0.03em; padding:7px 0 7px 15px; box-sizing:border-box;}
+nav .dateBox p:before{ content:""; position:absolute; top:50%; transform:translateY(-50%); left:0; width:5px; height:5px; border-radius:50%; background-color:#dc2f00;}
+nav .dateBox p:first-child{ border-bottom:1px solid #ddd;}
+nav .dateBox p span{ font-size:16px; margin-left:10px;}
+nav .nav_list{ width:100%; padding:20px; background-color:#2f2f2f; border-radius:10px; box-sizing:border-box; margin-top:20px;}
+nav .nav_list li{ margin-bottom:20px;}
+nav .nav_list li input{ display:none;}
+nav .nav_list li input + label{ font-size:18px; font-weight:500; color:#fff; cursor:pointer}
+nav .nav_list li input + label:hover,
+nav .nav_list li input:checked + label{ color:#dc2f00}
+nav .nav_list li input:checked + label + .subNav{ display:block !important; padding:10px 0;}
+nav .nav_list li .subNav{ display:none;}
+nav .nav_list li .subNav a{ position:relative; display:block; width:100%; font-size:16px; font-weight:500; color:#cdcdcd; margin-bottom:10px; padding-left:15px; box-sizing:border-box}
+nav .nav_list li .subNav a:before{ content:""; position:absolute; top:50%; transform:translateY(-50%); left:0; width:6px; height:10px; background-image:url(../img/icon_menuPoint.png); background-position:center; background-repeat:no-repeat; background-size:contain;}
+nav .nav_list li .subNav a:hover{ color:#dc2f00;}
+nav .nav_list li .subNav a.on{ color:#fff; }
+
+main{ padding:35px 30px 100px; font-size:0}
+main .mainArea{ position:relative; display:inline-block; vertical-align:top; width:calc(100% - 660px); padding:0 40px; box-sizing:border-box;}
+main .mainArea .mainTitle{ position:relative;}
+main .mainArea .mainTitle:before{ content:""; position:absolute; left:0; bottom:0; width:100%; height:7px; background-color:#e4e4e4;}
+main .mainArea .mainTitle span{ position:relative; display:inline-block; font-size:35px; color:#dc2f00; padding-bottom:15px; border-bottom:7px solid #dc2f00; z-index:1}
+main .mainArea .sortBox{ margin-top:30px; margin-bottom:50px;}
+main .mainArea .sortBox:after{ content:""; display:block; clear:both}
+main .mainArea .sortBox .selectBox{ float:left;}
+main .mainArea .sortBox .select{ position:relative; display:inline-block; vertical-align:middle; width:120px; border-bottom:3px solid #dc2f00; margin-right:10px;}
+main .mainArea .sortBox .select label{ display:block; width:100%; line-height:35px; font-size:16px; font-weight:500; color:#dc2f00; background-image:url(../img/icon_select.png); background-position:right 5px center; background-repeat:no-repeat; background-size:12px; cursor:pointer}
+main .mainArea .sortBox .select label.on{}
+main .mainArea .sortBox .select label.on + ul{ display:block !important}
+main .mainArea .sortBox .select ul{ display:none; position:absolute; top:40px; left:-10px; width:100%; padding:10px; border:2px solid #dc2f00; border-radius:5px; background-color:#fff; z-index:2;}
+main .mainArea .sortBox .select ul li{ display:block; width:100%; font-size:16px; font-weight:500; color:#676767; padding:5px 10px; box-sizing:border-box; line-height:1.4; text-align:left; cursor:pointer}
+main .mainArea .sortBox .select ul li.selected,
+main .mainArea .sortBox .select ul li:hover{ color:#fff; background-color:#dc2f00; border-radius:5px;}
+main .mainArea .sortBox .searchBox{ float:right;}
+main .mainArea .sortBox .searchBox .select{ width:100px;}
+main .mainArea .sortBox .inputBox{ position:relative; display:inline-block; vertical-align:middle; width:235px; height:40px; border:3px solid #dc2f00; box-sizing:border-box; border-radius:8px; padding-right:30px; margin-right:10px;}
+main .mainArea .sortBox .inputBox input{ display:block; width:100%; height:100%; font-size:16px; color:#414141; background-color:transparent; border:none; outline:none; padding:0 10px; box-sizing:border-box;}
+main .mainArea .sortBox .inputBox input::placeholder{ color:#7f7f7f;}
+main .mainArea .sortBox .inputBox .searchBtn{ position:absolute; top:50%; transform:translateY(-50%); right:5px;}
+main .mainArea .sortBox .inputBox .searchBtn img{ display:block; width:22px;}
+main .mainArea .sortBox .btn{ display:inline-block; vertical-align:middle; line-height:40px; font-size:16px; font-weight:500; color:#fff; text-align:center; background-color:#dc2f00; padding:0 20px; border-radius:10px;}
+main .mainArea .sortBox .sortBtn{ position:relative; margin-bottom:25px;}
+main .mainArea .sortBox .sortBtn a{ display:inline-block; vertical-align:middle; width:105px; line-height:35px; font-size:16px; font-weight:500; color:#fff; text-align:center; background-color:#dc2f00; border-radius:10px; margin-right:10px;}
+main .mainArea .sortBox .sortBtn a.download{ position:absolute; top:50%; transform:translateY(-50%); right:0; line-height:40px; margin:0}
+main .mainArea .summary{ margin-bottom:10px;}
+main .mainArea .summary span{ font-size:16px; color:#414141; margin-right:20px;}
+main .mainArea .summary span b{ color:#dc2f00;}
+main .mainArea .scrollBox{ width:100%; overflow:auto}
+main .mainArea .scrollBox .tableBox{ min-width:1103px;}
+main .mainArea .scrollBox .tableBox .table_title{ font-size:25px; color:#414141; margin-bottom:10px; margin-left:10px;}
+main .mainArea .scrollBox .tableBox table{ width:100%; border-collapse:collapse; text-align:center;}
+main .mainArea .scrollBox .tableBox table th{ position:relative;}
+main .mainArea .scrollBox .tableBox table th p{ display:block; line-height:40px; font-size:14px; font-weight:400; color:#fff; text-align:center; background-color:#a9a9a9; padding:0 10px;}
+main .mainArea .scrollBox .tableBox table th .absText{ position:absolute; width:150%; left:50%; transform:translateX(-50%); top:-30px; font-size:18px; font-weight:400; color:#414141;}
+main .mainArea .scrollBox .tableBox table th .absText2{ position:absolute; width:150%; left:20%; top:-30px; font-size:18px; font-weight:400; color:#414141;}
+main .mainArea .scrollBox .tableBox table th:first-child p{ border-radius:10px 0 0 10px;}
+main .mainArea .scrollBox .tableBox table th:last-child p{ border-radius:0 10px 10px 0;}
+main .mainArea .scrollBox .tableBox table th.radiusRight{ padding-right:7px}
+main .mainArea .scrollBox .tableBox table th.radiusRight p{ border-radius:0 10px 10px 0;}
+main .mainArea .scrollBox .tableBox table th.radiusLeft{ padding-left:7px}
+main .mainArea .scrollBox .tableBox table th.radiusLeft p{ border-radius:10px 0 0 10px;}
+main .mainArea .scrollBox .tableBox table th.radiusLast p{ border-radius:10px;}
+main .mainArea .scrollBox .tableBox table tr.total th{ padding:10px 0; border-bottom:2px solid #b6b6b6;}
+main .mainArea .scrollBox .tableBox table tr.total th p{ font-weight:600; color:#414141; background-color:#efefef}
+main .mainArea .scrollBox .tableBox table td{ vertical-align:middle; font-size:14px; color:#414141; text-align:center; padding:16px 10px; border-bottom:1px solid #ddd;}
+main .mainArea .scrollBox .tableBox table td .refBtn{ position:relative; display:inline-block; width:10px; height:11px; background-image:url(../img/icon_referral_link.png); background-position:center; background-repeat:no-repeat; background-size:contain; margin-left:3px; z-index:1}
+main .mainArea .scrollBox .tableBox table td .time{ display:block; font-size:12px;}
+main .mainArea .scrollBox .tableBox table td .time2{ font-size:12px; margin-left:10px;}
+main .mainArea .scrollBox .tableBox table tr:hover td{ background-color:#f4f4f4;}
+main .mainArea .pageBox{ text-align:center; margin-top:45px; margin-left:-200px;}
+main .mainArea .pageBox a{ display:inline-block; vertical-align:middle; margin:0 15px;}
+main .mainArea .pageBox a img{ height:16px;}
+main .mainArea .pageBox a.first{}
+main .mainArea .pageBox a.prev{}
+main .mainArea .pageBox a.next{}
+main .mainArea .pageBox a.last{}
+main .mainArea .pageBox a.number{ font-size:16px; color:#414141; padding:0 15px; margin:0; border-right:1px solid #ddd; line-height:1;}
+main .mainArea .pageBox a.number:hover,
+main .mainArea .pageBox a.number.on{ font-weight:600; color:#dc2f00;}
+main .mainArea .bottomBtn{ position:absolute; bottom:-10px; right:70px;}
+main .mainArea .bottomBtn a{ display:inline-block; width:145px; line-height:40px; font-size:16px; color:#fff; text-align:center; background-color:#dc2f00; border-radius:8px;}
+main .mainSendEmail .sortBox .searchBox{ float:left}
+main .mainSendEmail .sortBox .searchBox .inputBox{ width:380px;}
+main .mainRevenueShare .scrollBox{ padding-top:50px;}
+main .mainGame,
+main .mainPaymentManagement,
+main .mainBettingStatus{ width:calc(100% - 210px);}
+main .mainGame .scrollBox{ margin-top:50px; overflow:hidden}
+main .mainGame .scrollBox:after{ content:""; display:block; clear:both}
+main .mainGame .scrollBox .tableBox{ float:left; width:32%; min-width:0; margin-right:2%;}
+main .mainGame .scrollBox .tableBox:last-child{ margin-right:0}
+
+main .detailArea{ position:relative; display:inline-block; vertical-align:top; width:450px; min-height:760px; border:3px solid #dc2f00; box-sizing:border-box; border-radius:10px; padding:20px;}
+main .detailArea .xBtn{ display:none;}
+main .detailArea .detailTitle{ position:relative;}
+main .detailArea .detailTitle:before{ content:""; position:absolute; left:0; bottom:0; width:100%; height:4px; background-color:#e4e4e4;}
+main .detailArea .detailTitle span{ position:relative; display:inline-block; font-size:20px; color:#dc2f00; padding-bottom:10px; border-bottom:4px solid #dc2f00; z-index:1}
+main .detailArea .tableBox{ margin-bottom:50px;}
+main .detailArea .tableBox:last-child{ margin-bottom:0}
+main .detailArea .tableBox table{ width:100%; border-collapse:collapse}
+main .detailArea .tableBox table th{ width:130px; vertical-align:top; font-size:14px; font-weight:400; color:#414141; text-align:left; padding:12px 0; box-sizing:border-box; border-bottom:1px solid #ddd;}
+main .detailArea .tableBox table td{ position:relative; vertical-align:top; font-size:14px; font-weight:400; color:#414141; text-align:left; padding:12px 0; box-sizing:border-box; border-bottom:1px solid #ddd;}
+main .detailArea .tableBox table td .name{ display:inline-block; width:calc(100% - 120px); font-size:14px; font-weight:400; color:#414141;}
+main .detailArea .tableBox table td .reset{ position:absolute; top:50%; transform:translateY(-50%); right:0; font-size:14px; font-weight:400; color:#414141; display:inline-block; border-bottom:1px solid #414141;}
+main .detailArea .tableBox table td .email{ font-size:14px; font-weight:400; color:#414141; display:inline-block; border-bottom:1px solid #414141;}
+main .detailArea .tableBox table td .date{ margin-top:5px;}
+main .detailArea .tableBox table td .date img{ display:inline-block; vertical-align:middle; width:16px; margin-right:5px;}
+main .detailArea .tableBox table td .date span{ display:inline-block; vertical-align:middle; font-size:14px; font-weight:400; color:#414141;}
+main .detailArea .tableBox table td .time{ margin-left:20px;}
+main .detailArea .tableBox table td .number{ width:calc(100% - 120px); font-size:14px; font-weight:400; color:#414141;}
+main .detailArea .tableBox table td .detailBtn{ position:absolute; top:50%; transform:translateY(-50%); right:0; font-size:14px; font-weight:400; color:#414141; display:inline-block; border-bottom:1px solid #414141;}
+main .detailArea .tableBox table td .tip{ position:absolute; top:50%; transform:translateY(-50%); right:60px; font-size:14px; font-weight:500; color:#fff; width:50px; line-height:25px; text-align:center; background-color:#dc2f00; border-radius:5px;}
+main .detailArea .tableBox table td .select{ position:relative; display:inline-block; vertical-align:middle; width:120px; border-bottom:3px solid #dc2f00; box-sizing:border-box; margin-right:10px;}
+main .detailArea .tableBox table td .select label{ display:block; width:100%; line-height:35px; font-size:16px; font-weight:500; color:#dc2f00; background-image:url(../img/icon_select.png); background-position:right 5px center; background-repeat:no-repeat; background-size:12px; cursor:pointer}
+main .detailArea .tableBox table td .select label.on{}
+main .detailArea .tableBox table td .select label.on + ul{ display:block !important}
+main .detailArea .tableBox table td .select ul{ display:none; position:absolute; top:40px; left:-10px; width:100%; padding:10px; border:2px solid #dc2f00; border-radius:5px; background-color:#fff; z-index:2;}
+main .detailArea .tableBox table td .select ul li{ display:block; width:100%; font-size:16px; font-weight:500; color:#676767; padding:5px 10px; box-sizing:border-box; line-height:1.4; text-align:left; cursor:pointer}
+main .detailArea .tableBox table td .select ul li.selected,
+main .detailArea .tableBox table td .select ul li:hover{ color:#fff; background-color:#dc2f00; border-radius:5px;}
+main .detailArea .tableBox table td .inputBox{ width:100%; height:30px; border:1px solid #999; border-radius:5px; box-sizing:border-box;}
+main .detailArea .tableBox table td .inputBox.small{ display:inline-block; vertical-align:middle; width:30%}
+main .detailArea .tableBox table td .inputBox input{ display:block; width:100%; height:100%; font-size:14px; color:#414141; padding:0 10px; box-sizing:border-box; border:none; background-color:transparent; outline:none;}
+main .detailArea .tableBox table td .per{ display:inline-block; vertical-align:middle; font-size:16px; color:#414141; margin-left:10px;}
+main .detailArea .tableBox table.tb02 th{ border-bottom:none;}
+main .detailArea .tableBox table.tb02 th p{ display:block; font-size:14px; font-weight:400; color:#fff; text-align:center; background-color:#a9a9a9; padding:12px 5px;}
+main .detailArea .tableBox table.tb02 th:first-child p{ border-radius:10px 0 0 10px;}
+main .detailArea .tableBox table.tb02 th:last-child p{ border-radius:0 10px 10px 0;}
+main .detailArea .tableBox table.tb02 td{ vertical-align:middle; font-size:14px; color:#414141; text-align:center; border-bottom:1px solid #ddd; padding:12px 5px}
+main .detailArea .tableBox table.tb02 .total th{ font-weight:600; color:#414141; text-align:center; padding:10px 5px; border-bottom:2px solid #ddd;}
+main .detailArea .bottomBtn{ margin-top:40px; text-align:center;}
+main .detailArea .bottomBtn a{ display:inline-block; vertical-align:middle; width:150px; line-height:40px; font-size:16px; color:#fff; text-align:center; background-color:#dc2f00; border-radius:8px; margin:0 5px;}
+main .detailArea .bottomBtn a.blue{ background-color:#0090c5}
+main .detailArea .email_contents{ max-height:500px; font-size:14px; font-weight:400; color:#414141; text-align:left; padding:40px 0; line-height:1.6; overflow:auto}
+main .detailArea .delBtn{ position:absolute; right:10px; bottom:-45px; display:inline-block; width:85px; line-height:30px; font-size:14px; font-weight:600; color:#fff; text-align:center; background-color:#dc2f00; border-radius:8px;}
+main .registration .tableBox table th{ width:80px; vertical-align:middle; padding:0;}
+main .registration .tableBox table td .select{ width:100px; margin-right:8px;}
+main .registration .tableBox table td .select:last-child{ margin-right:0}
+main .detailSendEmail .tableBox{ margin-bottom:0}
+main .detailSendEmail .tableBox table th{ width:80px; vertical-align:middle; padding:0;}
+main .detailSendEmail .tableBox table td .select{ width:65px; margin-right:8px;}
+main .detailSendEmail .tableBox table td .select:nth-child(2){ width:100px}
+main .detailSendEmail .tableBox table td .select:last-child{ margin-right:0}
+main .detailSendEmail .tableBox table td .select label{ font-size:14px;}
+main .detailSendEmail .tableBox table td .select ul li{ font-size:14px;}
+main .detailSendEmail .tableBox table td .btn{display:inline-block; vertical-align:bottom; line-height:28px; font-size:14px; font-weight:600; color:#fff; text-align:center; background-color:#dc2f00; padding:0 10px; border-radius:8px;}
+main .detailSendEmail .tableBox .textArea{ width:100%; height:500px; border:1px solid #ddd; box-sizing:border-box; margin-top:20px;}
+main .detailSendEmail .tableBox .textArea textarea{ display:block; width:100%; height:100%; font-size:14px; font-weight:400; color:#414141; text-align:left; padding:10px; box-sizing:border-box; line-height:1.4; border:none; background-color:transparent; outline:none; resize:none;}
+main .detailSendEmail .bottomBtn{ margin-top:30px}
+main .detailSendEmail .bottomBtn a{ width:125px; line-height:35px;}
+main .addGroup .tableBox{ margin-bottom:0}
+main .addGroup .tableBox table th{ width:150px; vertical-align:middle; padding:0;}
+main .addGroup .bottomBtn{ margin-top:30px; text-align:right;}
+main .addGroup .bottomBtn a{ width:125px; line-height:35px; margin:0;}
+
+.alert_popup{ display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); width:630px; height:250px; border:3px solid #dc2f00; background-color:#fff; border-radius:10px; box-sizing:border-box; z-index:10;}
+.alert_popup .xBtn{ position:absolute; top:10px; right:10px; display:block; z-index:1}
+.alert_popup .xBtn img{ display:block; width:30px;}
+.alert_popup .contents{ position:absolute; top:50%; transform:translateY(-50%); left:0; width:100%; text-align:center;}
+.alert_popup .text01{ font-size:20px; font-weight:500; color:#dc2f00; line-height:1.4;}
+.alert_popup .text02{ font-size:16px; color:#414141; letter-spacing:-0.05em; line-height:1.6;}
+.alert_popup .btnBox{ margin-top:50px;}
+.alert_popup .btnBox a{ display:inline-block; vertical-align:middle; width:105px; line-height:40px; font-size:16px; color:#fff; text-align:center; background-color:#838383; border-radius:5px; margin:0 5px;}
+.alert_popup .btnBox a:first-child{ background-color:#dc2f00}
+
+.tip_popup{ display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); width:550px; border:3px solid #dc2f00; background-color:#fff; border-radius:10px; box-sizing:border-box; z-index:10;}
+.tip_popup .xBtn{ position:absolute; top:10px; right:10px; display:block; z-index:1}
+.tip_popup .xBtn img{ display:block; width:30px;}
+.tip_popup .contents{ width:100%; padding:35px 100px 45px; box-sizing:border-box}
+.tip_popup .contents .cash{ position:relative; border-bottom:2px solid #dc2f00; padding-bottom:10px;}
+.tip_popup .contents .cash p{ display:inline-block; font-size:30px; font-weight:bold; color:#dc2f00;}
+.tip_popup .contents .cash span{ position:absolute; bottom:10px; right:0; font-size:20px; color:#414141;}
+.tip_popup .contents .cash span b{ color:#0066ff;}
+.tip_popup .contents .tipInfo{ margin-top:20px;}
+.tip_popup .contents .tipInfo li{ font-size:0; margin-top:30px;}
+.tip_popup .contents .tipInfo li label{ display:inline-block; vertical-align:middle; width:90px; font-size:18px; font-weight:500; color:#dc2f00; text-align:right; padding-right:15px; box-sizing:border-box}
+.tip_popup .contents .tipInfo li .box{ display:inline-block; vertical-align:middle; width:calc(100% - 90px); padding-bottom:5px; border-bottom:2px solid #dc2f00;}
+.tip_popup .contents .tipInfo li .box .icon{ display:inline-block; vertical-align:middle; height:22px; margin-right:15px;}
+.tip_popup .contents .tipInfo li .box span{ display:inline-block; vertical-align:bottom; font-size:20px; color:#414141;}
+.tip_popup .contents .check{ margin-top:50px; text-align:center;}
+.tip_popup .contents .check input{ display:none;}
+.tip_popup .contents .check input + label{ display:inline-block; font-size:16px; color:#5f5f5f; padding:5px 0 5px 30px; background-image:url(../img/icon_check_off.png); background-position:left center; background-repeat:no-repeat; background-size:18px; line-height:1}
+.tip_popup .contents .check input:checked + label{ background-image:url(../img/icon_check_on.png); }
+.tip_popup .contents .btnBox{ margin-top:20px; text-align:center;}
+.tip_popup .contents .btnBox a{ display:inline-block; width:185px; line-height:45px; font-size:22px; font-weight:600; color:#fff; text-align:center; background-color:#dc2f00; border-radius:5px; border-bottom:2px solid #9c1b00; box-sizing:border-box;}
+
+.detail_popup{ display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); width:870px; border:3px solid #dc2f00; background-color:#fff; border-radius:10px; box-sizing:border-box; padding:30px; z-index:10;}
+.detail_popup .xBtn{ position:absolute; top:15px; right:15px; display:block; z-index:1}
+.detail_popup .xBtn img{ display:block; width:30px;}
+.detail_popup .popupTitle{ position:relative;}
+.detail_popup .popupTitle:before{ content:""; position:absolute; left:0; bottom:0; width:100%; height:4px; background-color:#e4e4e4;}
+.detail_popup .popupTitle span{ position:relative; display:inline-block; font-size:30px; font-weight:500; color:#dc2f00; padding-bottom:10px; border-bottom:4px solid #dc2f00; z-index:1}
+.detail_popup .contents{}
+.detail_popup .contents .summary{ font-size:16px; color:#414141; padding:10px 20px;}
+.detail_popup .contents .summary b{ color:#dc2f00; margin-left:20px;}
+.detail_popup .contents .scrollBox{}
+.detail_popup .contents .scrollBox .tableBox{}
+.detail_popup .contents .scrollBox .tableBox .thBox{ display:table; width:100%; border-collapse:collapse;}
+.detail_popup .contents .scrollBox .tableBox .thBox li{ display:table-cell; vertical-align:middle;}
+.detail_popup .contents .scrollBox .tableBox .thBox li p{ display:block; font-size:14px; font-weight:400; color:#fff; text-align:center; background-color:#a9a9a9; padding:10px;}
+.detail_popup .contents .scrollBox .tableBox .thBox li:first-child p{ border-radius:10px 0 0 10px;}
+.detail_popup .contents .scrollBox .tableBox .thBox li:last-child p{ border-radius:0 10px 10px 0;}
+.detail_popup .contents .scrollBox .tableBox .tdBox{ height:400px; margin-right:-16px; overflow:auto;}
+.detail_popup .contents .scrollBox .tableBox .tdBox li{ display:table; width:100%; border-collapse:collapse;}
+.detail_popup .contents .scrollBox .tableBox .tdBox li:hover{ background-color:#f4f4f4;}
+.detail_popup .contents .scrollBox .tableBox .tdBox li p{ display:table-cell; vertical-align:middle; vertical-align:middle; font-size:14px; color:#414141; text-align:center; padding:10px; border-bottom:1px solid #ddd;}
+.detail_popup .contents .scrollBox .tableBox .tdBox li p .time{ font-size:12px; margin-left:10px;}
+.detail_popup .contents .scrollBox .tableBox .tdBox li.withdrawal p:nth-child(n + 2){ color:#007eff;}
+.detail_popup .contents .scrollBox .tableBox .item01{ width:22%}
+.detail_popup .contents .scrollBox .tableBox .item02{ width:18%}
+.detail_popup .contents .scrollBox .tableBox .item03{ width:22%}
+.detail_popup .contents .scrollBox .tableBox .item04{ width:16%}
+.detail_popup .contents .scrollBox .tableBox .item05{ width:22%}
+.detail_popup .contents .scrollBox .tableBox .item01-1{ width:23%}
+.detail_popup .contents .scrollBox .tableBox .item02-1{ width:11%}
+.detail_popup .contents .scrollBox .tableBox .item03-1{ width:20%}
+.detail_popup .contents .scrollBox .tableBox .item04-1{ width:10%}
+.detail_popup .contents .scrollBox .tableBox .item05-1{ width:10%}
+.detail_popup .contents .scrollBox .tableBox .item06-1{ width:10%}
+.detail_popup .contents .scrollBox .tableBox .item07-1{ width:16%}
+.detail_popup .contents .scrollBox .tableBox .item01-2{ width:22%}
+.detail_popup .contents .scrollBox .tableBox .item02-2{ width:17%}
+.detail_popup .contents .scrollBox .tableBox .item03-2{ width:12%}
+.detail_popup .contents .scrollBox .tableBox .item04-2{ width:21%}
+.detail_popup .contents .scrollBox .tableBox .item05-2{ width:14%}
+.detail_popup .contents .scrollBox .tableBox .item06-2{ width:14%}
+.detail_popup .contents .btnBox{ margin-top:50px; text-align:center;}
+.detail_popup .contents .btnBox a{ display:inline-block; width:145px; line-height:40px; font-size:18px; font-weight:600; color:#fff; text-align:center; background-color:#dc2f00; border-radius:5px; box-sizing:border-box;}
+
+@media (max-width: 1800px) {
+main .mainArea .sortBox .searchBox{ margin-top:10px;}
+main .mainBettingStatus .sortBox .searchBox{ margin-top:0;}
+}
+
+@media (max-width: 1500px) {
+main .mainArea .pageBox{ margin-left:0;}
+main .mainArea .bottomBtn{ position:relative; bottom:auto; right:auto; margin-top:30px; text-align:center;}
+}
+
+@media (max-width: 1300px) {
+main .mainArea .sortBox .sortBtn a{ margin-bottom:10px;}
+main .mainArea .sortBox .sortBtn a.download{ position:static; top:auto; right:auto; transform:none; line-height:35px; margin-bottom:10px}
+main .mainArea .sortBox .inputBox{ margin:10px 10px 10px 0;}
+main .mainArea .sortBox .btn{ margin:10px 0;}
+}
+
+@media (max-width: 1200px) {
+main .mainGame .scrollBox .tableBox{ float:none; width:100%; min-width:0; margin-top:30px;}
+main .mainGame .scrollBox .tableBox:first-child{ margin-top:0}
+main .mainSendEmail .sortBox .searchBox .inputBox{ width:100%}
+}
+
+@media (max-width: 1024px) {
+.pc_only{ display:none !important;}
+
+#container .login{ width:100%; margin:50px 0; padding:0 50px; box-sizing:border-box}
+#container .login .logo img{ width:100%;}
+#container .login .formBox{ margin-top:80px; padding:0 10px;}
+#container .login .formBox .inputBox{ height:40px; padding-left:30px; margin-top:30px;}
+#container .login .formBox .inputBox .icon{ width:20px;}
+#container .login .formBox .inputBox input{ font-size:16px;}
+#container .login .formBox .inputBox .checked{ height:10px;}
+#container .login .formBox .warningText{ font-size:11px;}
+#container .login .checkBox{ margin-top:40px;}
+#container .login .checkBox input + label{ font-size:12px; padding:5px 0 5px 20px; background-size:14px; letter-spacing:-0.05em;}
+#container .login .checkBox .forgotBtn{ font-size:12px; letter-spacing:-0.05em;}
+#container .login .btnBox a{ width:220px; line-height:45px; font-size:18px; border-width:3px; border-radius:8px;}
+#container .login .formBox .formText{ font-size:12px;}
+#container .forgot .formBox label{ font-size:18px;}
+#container .login .marginT{ margin-top:60px;}
+#container .login .textBox .title{ font-size:22px;}
+#container .login .textBox .subTitle{ font-size:12px; margin-top:20px;}
+#container .login .textBox .subTitle br{ display:none}
+#container .login .formBox .formTitle{ font-size:16px; margin-top:30px;}
+#container .change .formBox .inputBox{ margin-top:10px;}
+
+nav{ position:fixed; top:0; right:-230px; display:block; width:230px; background-color:#ededed; padding:60px 15px 15px 15px; box-sizing:border-box; z-index:10; transition:0.3s;}
+nav.show{ right:0 !important}
+nav .xBtn{ display:block; position:absolute; top:15px; right:15px;}
+nav .xBtn img{ display:block; width:24px;}
+nav .dateBox{ background-color:#fff;}
+nav .dateBox p{ font-size:16px;}
+nav .dateBox p span{ font-size:14px;}
+nav .nav_list{ max-height:480px; overflow:auto}
+nav .nav_list li{ margin-bottom:10px;}
+nav .nav_list li input + label{ font-size:16px;}
+nav .nav_list li .subNav a{ font-size:14px;}
+header{ padding:20px 15px;}
+header .logo{ width:120px;}
+header .profile{ top:17px; transform:none; right:65px; padding:0; background-color:transparent; border-radius:0}
+header .profile img{ width:20px;}
+header .profile .name{ font-size:12px; line-height:1; margin-left:5px;}
+header .menuBtn{ display:block; position:absolute; top:20px; right:15px; z-index:1}
+header .menuBtn img{ display:block; width:24px;}
+header .depth{ display:block; width:100%; box-sizing:border-box; margin-top:20px; padding:0 15px;}
+header .depth span{ line-height:35px; font-size:12px; padding-right:30px;}
+header .depth span:before{ right:12px; width:6px; height:10px;}
+footer{ padding:20px 25px; box-sizing:border-box;}
+footer .center{ width:100%;}
+footer .footer_nav{ position:static; font-size:0}
+footer .footer_nav li{ margin-left:0; margin-right:40px}
+footer .footer_nav li:last-child{ margin-right:0}
+footer .footer_nav li p{ font-size:11px; margin-bottom:15px;}
+footer .footer_nav li a{ font-size:11px; margin-top:10px;}
+footer .footer_info{ margin-top:50px;}
+footer .footer_info .logo img,
+footer .footer_info .logo_gc img{ width:100px;}
+footer .footer_info .info_text{ font-size:10px; margin-top:10px;}
+main{ padding:15px 15px 80px;}
+main .mainArea{ width:100% !important; padding:0}
+main .mainArea .scrollBox{ width:calc(100% + 15px); }
+main .mainArea .scrollBox .tableBox{ padding-right:15px;}
+main .mainArea .mainTitle span{ font-size:20px; padding-bottom:10px; border-bottom-width:4px;}
+main .mainArea .mainTitle:before{ height:4px;}
+main .mainArea .sortBox{ margin:30px 0;}
+main .mainArea .sortBox .sortBtn a{ width:23%; line-height:30px; font-size:12px; border-radius:5px; margin-right:2%;}
+main .mainArea .sortBox .sortBtn a.download{ line-height:30px;}
+main .mainArea .sortBox .selectBox{ float:none; width:100%; }
+main .mainArea .sortBox .searchBox{ float:none; width:100%; margin-top:10px;}
+main .mainArea .sortBox .select{ width:calc(33% - 24px); margin-right:5px; border-bottom-width:2px;}
+main .mainArea .sortBox .select label{ font-size:12px; line-height:30px; background-size:10px;}
+main .mainArea .sortBox .select ul{ top:35px; padding:5px;}
+main .mainArea .sortBox .select ul li{ font-size:12px; padding:5px;}
+main .mainArea .sortBox .searchBox .select{ width:70px;}
+main .mainArea .sortBox .searchBox .btn{ width:80px;}
+main .mainArea .sortBox .inputBox{ width:calc(100% - 180px); height:30px; border-width:1px; border-radius:5px; padding-right:20px; margin:0 5px 0 20px;}
+main .mainArea .sortBox .inputBox input{ font-size:12px;}
+main .mainArea .sortBox .inputBox .searchBtn img{ width:16px;}
+main .mainArea .sortBox .btn{ width:60px; line-height:30px; font-size:12px; padding:0; border-radius:5px;}
+main .mainArea .sortBox .searchBox .btn{ margin:0;}
+main .mainArea .summary span{ font-size:12px; margin-right:15px;}
+main .mainArea .scrollBox .tableBox{ min-width:900px;}
+main .mainArea .scrollBox .tableBox .table_title{ font-size:20px;}
+main .mainArea .scrollBox .tableBox table th p{ font-size:12px; line-height:30px;}
+main .mainArea .scrollBox .tableBox table th:first-child p{ border-radius:5px 0 0 5px;}
+main .mainArea .scrollBox .tableBox table th:last-child p{ border-radius:0 5px 5px 0;}
+main .mainArea .scrollBox .tableBox table th.radiusRight{ padding-right:5px}
+main .mainArea .scrollBox .tableBox table th.radiusRight p{ border-radius:0 5px 5px 0;}
+main .mainArea .scrollBox .tableBox table th.radiusLeft{ padding-left:5px}
+main .mainArea .scrollBox .tableBox table th.radiusLeft p{ border-radius:5px 0 0 5px;}
+main .mainArea .scrollBox .tableBox table th.radiusLast p{ border-radius:5px;}
+main .mainArea .scrollBox .tableBox table td{ font-size:12px; padding:10px;}
+main .mainArea .scrollBox .tableBox table th .absText{ top:-20px; font-size:12px;}
+main .mainArea .pageBox{ margin-top:30px;}
+main .mainArea .pageBox a{ margin:0 10px;}
+main .mainArea .pageBox a img{ height:12px;}
+main .mainArea .pageBox a.number{ font-size:14px;}
+main .mainArea .pageBox a.number.m_borderN{ border:none;}
+main .mainArea .bottomBtn a{ width:110px; line-height:30px; font-size:12px; border-radius:5px;}
+main .mainSendEmail .scrollBox .tableBox{ min-width:700px;}
+main .mainRevenueShare .scrollBox .tableBox{ min-width:500px;}
+main .mainSendEmail .sortBox .searchBox .inputBox{ width:calc(100% - 85px); margin-left:0 !important}
+main .mainSales .sortBox .inputBox{ margin-left:0 !important}
+main .mainGame .summary span{ font-size:11px; letter-spacing:-0.05em; margin-right:10px;}
+main .mainGame .scrollBox{ width:100%; margin-top:0;}
+main .mainGame .scrollBox .tableBox{ min-width:0}
+main .mainBettingStatus .sortBox .inputBox{ margin-left:0}
+main .mainBettingStatus .summary span{ font-size:11px; margin-right:10px; letter-spacing:-0.05em;}
+main .mainBettingStatus .scrollBox .tableBox{ min-width:700px;}
+
+main .detailArea{ display:none; position:fixed; top:15px; left:15px; width:calc(100% - 30px); max-height:calc(100% - 30px); min-height:0; box-sizing:border-box; background-color:#fff; padding:20px 15px; z-index:9; overflow:auto; border-width:2px;}
+main .detailArea .xBtn{ display:block; position:absolute; top:10px; right:10px; z-index:1}
+main .detailArea .xBtn img{ display:block; width:24px;}
+main .detailArea .detailTitle:before{ height:2px;}
+main .detailArea .detailTitle span{ font-size:16px; padding-bottom:5px; border-width:2px; letter-spacing:-0.03em}
+main .detailArea .tableBox{ margin-bottom:30px;}
+main .detailArea .tableBox table th{ width:100px; font-size:12px; padding:10px 0;}
+main .detailArea .tableBox table td{ font-size:12px; padding:10px 0;}
+main .detailArea .tableBox table td .name,
+main .detailArea .tableBox table td .reset,
+main .detailArea .tableBox table td .email,
+main .detailArea .tableBox table td .date span,
+main .detailArea .tableBox table td .number,
+main .detailArea .tableBox table td .detailBtn{ font-size:12px;}
+main .detailArea .tableBox table td .name{ width:calc(100% - 100px);}
+main .detailArea .tableBox table td .time{ font-size:11px; margin-left:10px;}
+main .detailArea .tableBox table td .tip{ right:50px; font-size:12px; width:40px; line-height:22px;}
+main .detailArea .tableBox table td .select{ width:calc(33% - 4px); margin-right:4px; border-bottom-width:2px;}
+main .detailArea .tableBox table td .select:last-child{ margin-right:0}
+main .detailArea .tableBox table td .select label{ font-size:12px; line-height:30px; background-size:10px;}
+main .detailArea .tableBox table td .select ul{ top:35px; padding:5px;}
+main .detailArea .tableBox table td .select ul li{ font-size:12px; padding:5px;}
+main .detailArea .tableBox table td .per{ font-size:12px; margin-left:5px;}
+main .detailArea .tableBox table td .inputBox input{ font-size:12px;}
+main .detailArea .tableBox table.tb02 th{ width:auto; padding:10px 0 0;}
+main .detailArea .tableBox table.tb02 th:first-child p{ border-radius:5px 0 0 5px;}
+main .detailArea .tableBox table.tb02 th:last-child p{ border-radius:0 5px 5px 0;}
+main .detailArea .tableBox table.tb02 th p{ font-size:12px; padding:10px 3px;}
+main .detailArea .tableBox table.tb02 .total th{ font-size:11px; padding:10px 3px;}
+main .detailArea .tableBox table.tb02 td{ font-size:11px; padding:10px 3px;}
+main .detailArea .bottomBtn{ margin-top:20px;}
+main .detailArea .bottomBtn a{ width:110px; line-height:30px; font-size:12px; border-radius:5px;}
+main .detailArea .email_contents{ max-height:300px; font-size:12px; padding:20px 0;}
+main .detailArea .delBtn{ right:15px; bottom:20px; width:70px; font-size:12px; border-radius:5px;}
+main .registration .tableBox table th{ width:70px;}
+main .detailSendEmail .tableBox table th{ width:60px;}
+main .detailSendEmail .tableBox table td .select{ width: calc(33% - 32px);}
+main .detailSendEmail .tableBox table td .select:nth-child(2){ width:82px;}
+main .detailSendEmail .tableBox table td .btn{ line-height:24px; font-size:12px; border-radius:5px;}
+main .detailSendEmail .tableBox .textArea{ height: calc(100vh - 365px);}
+main .detailSendEmail .tableBox .textArea textarea{ font-size:14px;}
+main .addGroup .bottomBtn a{ width:70px;}
+
+
+.alert_popup{ width:90%; height:200px; border-width:2px;}
+.alert_popup .xBtn img{ width:20px;}
+.alert_popup .contents{ padding:0 10px; box-sizing:border-box;}
+.alert_popup .text01{ font-size:16px; word-break: break-word;}
+.alert_popup .text02{ font-size:12px; word-break: break-word;}
+.alert_popup .btnBox{ margin-top:30px}
+.alert_popup .btnBox a{ width:80px; line-height:30px; font-size:12px;}
+
+.tip_popup{ width:90%; border-width:2px; padding:20px 15px;}
+.tip_popup .xBtn img{ width:20px}
+.tip_popup .contents{ padding:10px 20px;}
+.tip_popup .contents .cash{ padding-bottom:5px;}
+.tip_popup .contents .cash p{ font-size:24px;}
+.tip_popup .contents .cash span{ bottom:5px; font-size:16px;}
+.tip_popup .contents .tipInfo li{ margin-top:20px}
+.tip_popup .contents .tipInfo li label{ width:75px; font-size:14px; padding-right:10px;}
+.tip_popup .contents .tipInfo li .box .icon{ height:16px; margin-right:10px;}
+.tip_popup .contents .tipInfo li .box span{ font-size:16px;}
+.tip_popup .contents .check{ margin-top:30px;}
+.tip_popup .contents .check input + label{ font-size:14px; padding:5px 0 5px 25px; background-size:16px;}
+.tip_popup .contents .btnBox a{ width:140px; line-height:35px; font-size:16px;}
+
+.detail_popup{ top:15px; left:15px; transform:none; width:calc(100% - 30px); max-height:calc(100vh - 30px); border-width:2px; padding:20px 15px;}
+.detail_popup .xBtn{ top:10px; right:10px;}
+.detail_popup .xBtn img{ width:24px;}
+.detail_popup .popupTitle:before{ height:2px;}
+.detail_popup .popupTitle span{ font-size:18px; padding-bottom:5px; border-width:2px;}
+.detail_popup .contents .summary{ font-size:11px; padding:10px 0; letter-spacing:-0.05em;}
+.detail_popup .contents .scrollBox{ width:100%; overflow:auto;}
+.detail_popup .contents .scrollBox .tableBox{ width:600px;}
+.detail_popup .contents .scrollBox .tableBox .thBox li p{ font-size:12px; }
+.detail_popup .contents .scrollBox .tableBox .tdBox{ height: calc(100vh - 231px); margin-right:0}
+.detail_popup .contents .scrollBox .tableBox .tdBox li p{ font-size:12px; padding:10px 5px;}
+.detail_popup .contents .scrollBox .tableBox .tdBox li p .time{ font-size:11px; margin-left:5px;}
+.detail_popup .contents .btnBox{ margin-top:30px;}
+.detail_popup .contents .btnBox a{ width:110px; line-height:30px; font-size:12px; border-radius:5px;}
+
+}
