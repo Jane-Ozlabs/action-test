@@ -33,7 +33,6 @@ export default {
     },
     select(e, x) {
     	var label = $(e.target).parent().prev();
-      label.text($(e.target).text());
       label.removeClass("on");
       this.content = x.value
       this.$emit('input', String(this.content));

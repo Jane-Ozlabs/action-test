@@ -4,24 +4,23 @@
             <ul class="footer_nav">
                 <li>
                     <p>COMPANY</p>
-                    <a href="">About US</a>
-                    <a href="">FAQ</a>
-                    <a href="">Contact US</a>
-                    <a href="">Partnership</a>
-                    <a href="">Promotion</a>
+                    <a :href="VUE_APP_LINK_ABOUT" target="_blank">About US</a>
+                    <a :href="VUE_APP_LINK_FAQ" target="_blank">FAQ</a>
+                    <a :href="VUE_APP_LINK_SUPPORT" target="_blank">Contact US</a>
+                    <a :href="VUE_APP_LINK_PARTNERSHIP" target="_blank">Partnership</a>
+                    <a :href="VUE_APP_LINK_PROMOTION" target="_blank">Promotion</a>
                 </li>
                 <li>
                     <p>INFORMATION</p>
-                    <a href="">Terms & Conditions</a>
-                    <a href="">Cookies Policy</a>
-                    <a href="">Privacy Policy</a>
-                    <a href="">Responsible Gambling</a>
+                    <a :href="VUE_APP_LINK_TERMS" target="_blank">Terms & Conditions</a>
+                    <a :href="VUE_APP_LINK_COOKIES" target="_blank">Cookies Policy</a>
+                    <a :href="VUE_APP_LINK_PRIVACY" target="_blank">Privacy Policy</a>
+                    <a :href="VUE_APP_LINK_RESPONSIBLE" target="_blank">Responsible Gambling</a>
                 </li>
                 <li>
                     <p>PLAY NOW</p>
-                    <a href="">Casino</a>
-                    <a href="">Poker</a>
-                    <a href="">Sports</a>
+                    <a :href="VUE_APP_LINK_CASINO" target="_blank">Casino</a>
+                    <a :href="VUE_APP_LINK_SPORTS" target="_blank">Sports</a>
                 </li>
             </ul>
             <div class="footer_info">
@@ -49,6 +48,17 @@ export default {
   components: {},
   data() {
     return {
+      VUE_APP_LINK_ABOUT: process.env.VUE_APP_LINK_ABOUT,
+      VUE_APP_LINK_FAQ: process.env.VUE_APP_LINK_FAQ,
+      VUE_APP_LINK_SUPPORT: process.env.VUE_APP_LINK_SUPPORT,
+      VUE_APP_LINK_PARTNERSHIP: process.env.VUE_APP_LINK_PARTNERSHIP,
+      VUE_APP_LINK_PROMOTION: process.env.VUE_APP_LINK_PROMOTION,
+      VUE_APP_LINK_TERMS: process.env.VUE_APP_LINK_TERMS,
+      VUE_APP_LINK_COOKIES: process.env.VUE_APP_LINK_COOKIES,
+      VUE_APP_LINK_PRIVACY: process.env.VUE_APP_LINK_PRIVACY,
+      VUE_APP_LINK_RESPONSIBLE: process.env.VUE_APP_LINK_RESPONSIBLE,
+      VUE_APP_LINK_CASINO: process.env.VUE_APP_LINK_CASINO,
+      VUE_APP_LINK_SPORTS: process.env.VUE_APP_LINK_SPORTS,
     };
   },
   computed: {
