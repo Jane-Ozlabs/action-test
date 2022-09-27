@@ -88,7 +88,7 @@ export default {
       console.log("loadPagedView", UV(res));
 
       this.agentLines = res.agentLines;
-      this.summmary = res.summmary;
+      this.summary = res.summary;
 
       hideRightPanel();
     },

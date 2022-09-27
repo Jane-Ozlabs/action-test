@@ -62,7 +62,7 @@ export default {
       title: "일별 매출 현황",
       items: [],
       filters: { agent1: 0, agent2: 0, agent3: 0, dateFrom: "", dateTo: "", username: "", page: 1, perPage: 50, total: 0 },
-      summmary: { bet: 0, winLose: 0, rs1: 0, rs2: 0, rs3: 0 },
+      summary: { bet: 0, winLose: 0, rs1: 0, rs2: 0, rs3: 0 },
       rows: [],
       agentLines: [],
 
@@ -88,7 +88,7 @@ export default {
       console.log("loadPagedView", UV(res));
 
       this.agentLines = res.agentLines;
-      this.summmary = res.summmary;
+      this.summary = res.summary;
 
       hideRightPanel();
     },
