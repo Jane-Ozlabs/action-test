@@ -24,12 +24,13 @@ export default {
     error: state => state.error,
     errorTitle: state => state.error && state.error.error || "Error",
     errorContent: state => state.error && state.error.message || "Unknown Error",
+    shouldStay: state => state.error && state.error.stay || this.stay,
     styleObject() { return { display: this.modalErrorShow ? 'block' : 'none' } }
   }),
   methods: {
     resetError() {
       this.$store.commit("ERROR", null);
-      if(this.stay) return;
+      if(this.shouldStay) return;
       
       var access_token = this.$store.getters['auth/accessToken'];
       if(!access_token) this.$router.push({ path: "/login" });
