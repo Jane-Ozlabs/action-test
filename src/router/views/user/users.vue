@@ -85,6 +85,7 @@ export default {
   },
   filters: {},
   mounted() {
+    setMainAreaClass("");
     this.load();
   },
   computed: {
@@ -167,7 +168,7 @@ export default {
   }
 };
 import {usersView} from "@/services/partner";
-import {showRightPanel, hideRightPanel, agentOptions} from "@/utils";
+import {showRightPanel, hideRightPanel, agentOptions, setMainAreaClass} from "@/utils";
 import Layout from "@/router/layouts/main";
 import PageHeader from "@/components/page-header";
 import UserInfoBar from "./userinfobar";

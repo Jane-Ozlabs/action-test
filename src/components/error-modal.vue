@@ -20,11 +20,11 @@ export default {
   created() {
   },
   computed: mapState({
-    modalErrorShow: state => !!state.error,
-    error: state => state.error,
-    errorTitle: state => state.error && state.error.error || "Error",
-    errorContent: state => state.error && state.error.message || "Unknown Error",
-    shouldStay: state => state.error && state.error.stay || this.stay,
+    modalErrorShow(state) { return !!state.error },
+    error(state) { return state.error },
+    errorTitle(state) { return state.error && state.error.error || "Error" },
+    errorContent(state) { return state.error && state.error.message || "Unknown Error" },
+    shouldStay(state) { return state.error && state.error.stay || this.stay },
     styleObject() { return { display: this.modalErrorShow ? 'block' : 'none' } }
   }),
   methods: {
