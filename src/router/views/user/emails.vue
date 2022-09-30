@@ -37,7 +37,8 @@
 
     <template v-slot:right>
       <EmailWrite :agentLines="agentLines" :from="from" @reload="load" v-if="mode == 'write'" />
-      <EmailReview :emailId="emailId" :onReload="load" v-if="mode == 'review'" />
+      <EmailReview :emailId="emailId" @reload="load" @edit="edit" v-if="mode == 'review'" />
+      <EmailEdit :emailId="emailId" @reload="load" v-if="mode == 'edit'" />
     </template>
   </Layout>
 </template>
@@ -48,7 +49,7 @@ export default {
     title: "이메일 발송",
     meta: [{ name: "description", content: appConfig.description }],
   },
-  components: { Layout, PageHeader, EmailReview, EmailWrite, Pagination },
+  components: { Layout, PageHeader, EmailReview, EmailWrite, EmailEdit, Pagination },
   data() {
     return {
       title: "이메일 발송",
@@ -101,6 +102,11 @@ export default {
       this.mode = "write";
       showRightPanel();
     },
+    edit(id) {
+      this.mode = "edit";
+      this.emailId = id;
+      showRightPanel();
+    },
     download() {
 
     },
@@ -110,6 +116,7 @@ import Layout from "@/router/layouts/main";
 import PageHeader from "@/components/page-header";
 import EmailReview from "./email-review";
 import EmailWrite from "./email-write";
+import EmailEdit from "./email-edit";
 import appConfig from "@/app.config";
 import {emailsView} from "@/services/partner";
 import Pagination from "@/components/pagination";

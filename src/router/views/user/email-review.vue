@@ -32,7 +32,10 @@
           <div class="email_contents" v-html="this.content">
           </div>
       </div>
-      <a href="javascript:;" class="delBtn" @click="del">Delete</a>
+      <div class="bottomBtn">
+        <a href="javascript:;" class="blue" @click="edit">Edit&Send</a>
+        <a href="javascript:;" @click="del">Delete</a>
+      </div>
   </div>
 </template>
 
@@ -79,6 +82,9 @@ export default {
       this.sent = sent;
       this.total = total;
       this.updatedAt = updatedAt;
+    },
+    async edit() {
+      this.$emit("edit", this.emailId);
     },
     async del() {
       var r = await Swal.fire({ text: "삭제하시겠습니까?",  showCancelButton: true, confirmButtonColor: "#34c38f", cancelButtonColor: "#f46a6a", confirmButtonText: "삭제" });
