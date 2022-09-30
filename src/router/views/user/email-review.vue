@@ -94,7 +94,7 @@ export default {
 
       await Swal.fire({ text: "삭제되었습니다..",  showCancelButton: false, confirmButtonColor: "#34c38f" });
 
-      this.onReload();
+      this.$emit("reload");
     },
   },
   watch: {
