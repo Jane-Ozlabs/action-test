@@ -44,7 +44,9 @@ export default {
     handleOk() {
       var modal = { ...this.$store.getters.modals[MODAL_KEY] };
       console.log(modal);
-      this.$store.dispatch("auth/resetPassword", { email: this.email });
+
+      loadView(this, "/partners/sendpasswordresetemail", { email: this.email });
+
       this.reset();
     },
   }

@@ -13,8 +13,8 @@
             <tr>
               <th>Group</th>
               <td>
-                <BSSelect v-model="agentGroup" :options="agentGroupOptions"/>
-                <p class="per">({{selectedAgentGroup.r1}}% : {{selectedAgentGroup.r2}}% : {{selectedAgentGroup.r3}}%)</p>
+                <BSSelect v-model="group" :options="agentGroupOptions"/>
+                <p class="per">({{selectedAgentGroup.rate1}}% : {{selectedAgentGroup.rate2}}% : {{selectedAgentGroup.rate3}}%)</p>
               </td>
             </tr>
             <tr>
@@ -59,42 +59,39 @@ import AgentFilter from "@/components/agent-filter";
 export default {
   components: { simplebar, AgentFilter, BSSelect },
   props: ["onReload", "onClose" ],
-  setup () {
-    return {
-      v$: useVuelidate()
-    }
-  },  
   mounted() {
     this.load()
   },
   computed: {
     agentGroupOptions() { return this.agentGroups.map(x => ({ value: x.id, text: x.name })) },
-    selectedAgentGroup() { return this.agentGroups.find(x => x.id == this.agentGroup) || { r1: 0, r2: 0, r3: 0 } },
+    selectedAgentGroup() { return this.agentGroups.find(x => x.id == this.group) || { r1: 0, r2: 0, r3: 0 } },
     ...mapState({
       registrationModalResult: state => { return state.modals['account-registration-modal'] && !state.modals['account-registration-modal'].isVisible && state.modals['account-registration-modal'].result || null },
     }),
   },
   data() {
     return {
-      referral: "",
-      group: "0",
       username: "",
       password: "",
       password2: "",
       email: "",
-      groups: [],
 
       agentLines: [],
       agentGroups: [],
-      agentGroup: "0",
+      group: "0",
       agentLevel: 1,
     };
   },
-  validations: {
-    username: { required },
-    email: { required },
-    password: { required },
-    password2: { required },
+  validations() {
+    return {
+      group: { group: helpers.withMessage("Please select a valid group.", (x) => x > 0) },
+      username: { required: helpers.withMessage("Please input a valid username", required) },
+      email: { email: helpers.withMessage("Please ensure you enter a valid email address.", email), required: helpers.withMessage("Please enter a valid email address.", required) },
+      password: { required: helpers.withMessage("Please enter a valid password", required), 
+        length: helpers.withMessage("Your password should be 6~18 characters long.", and(minLength(6), maxLength(18))),
+        password: helpers.withMessage("Your password must contain letter and at least one character category among the digits and special characters(!@#$%^&()*).", mustBePassword) },
+      password2: { password2: helpers.withMessage("Your passwords do not match. Please try again.", sameAs(this.password)) },
+    }
   },
   methods: {
     async load() {
@@ -103,21 +100,19 @@ export default {
       this.agentGroups = r.agentGroups;
       this.agentLines = r.agentLines;
     },
+
     async register() {
-      var isvalid = await this.v$.$validate();
-      console.log(UV(this.v$));
-      if(!isvalid) return;
+      if(!await ValidOrError(this.v$, "Account registration")) return;
 
       var user = {
         agent1: this.$refs.agentFilter.filters.id1,
         agent2: this.$refs.agentFilter.filters.id2,
         agent3: this.$refs.agentFilter.filters.id3,
-        referral: this.referral,
         username: this.username,
         password: this.password,
         password2: this.password,
         email: this.email,
-        agentGroup: this.agentGroup,
+        agentGroup: this.group,
       };
       if(user.password != user.password2) {
         return Swal.fire({ text: "Passwords not match",  showCancelButton: false, confirmButtonColor: "#34c38f" });
@@ -140,18 +135,24 @@ export default {
         hideRightPanel();
       }
     },
-    agentGroup(x) {
-      console.log("watch:agentGroup", x);
+    group(x) {
+      console.log("watch:group", x);
     },
-  }
+  },
+  setup () {
+    return {
+      v$: useVuelidate({ $lazy: true, $autoDirty: true })
+    }
+  },  
 };
 
 import {registerUser} from "@/services/partner";
+import {ValidOrError} from "@/services/validation";
 import BSSelect from "@/components/bsselect";
 import {showModal,hideModal, hideRightPanel,dispatchPaged,} from "@/utils";
 import { mapState } from 'vuex';
 import { useVuelidate } from '@vuelidate/core'
-import { required } from '@vuelidate/validators'
-import { minLength } from "@/utils/validators"
+import { required, email, sameAs, minLength, maxLength, and, or, helpers } from '@vuelidate/validators'
+import { mustBePassword } from "@/utils/validators"
 
 </script>

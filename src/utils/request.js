@@ -34,7 +34,8 @@ export const request = async function(method, url, params, data, headers)
         return res.data;
     } catch(e) {
         var status = e.response && e.response.status || 500;
-        var error = e.response && e.response.data && e.response.data.ClassName || e.name;
+        //var error = e.response && e.response.data && e.response.data.ClassName || e.name;
+        var error = e.response && e.response.data && e.name;
         var message = e.response && e.response.data && e.response.data.Message || e.message;
         console.error("request", status, error, message, e);
         store.commit("ERROR", { error, message });

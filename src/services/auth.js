@@ -5,7 +5,7 @@ export const login = async (data) => {
         console.log("login", unvue(data));
         var res = await request("post", `${API_URL}/partners/token`, null, data, { ...authHeaders() });
         console.log("login: res:", unvue(res));
-        var { token: access_token, refresh_token = null, username, email, name, roles, permissions, userAgent } = res;
+        var { token: access_token, refreshToken: refresh_token, username, email, name, roles, permissions, userAgent } = res;
         SetAuth({ access_token, refresh_token, username, email, name, roles, permissions, userAgent });
         var auth = GetAuth();
         return { auth };

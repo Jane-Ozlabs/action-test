@@ -4,7 +4,7 @@
 
     <slot />
 
-    <ErrorModal />
+    <ErrorModal :stay="true" />
 
     <Footer />
 

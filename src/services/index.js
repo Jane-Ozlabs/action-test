@@ -98,7 +98,6 @@ export const refreshTokenImportant = async () => {
 }
 
 export const refreshToken = async () => {
-  return; // FIXME:
     try {
         var res = await request("post", `${API_URL}/partners/refreshtoken`, null, null, { ...authHeaders() });
         console.log("refreshToken: res:", unvue(res));

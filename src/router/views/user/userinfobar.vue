@@ -11,7 +11,7 @@
               </tr>
             <tr>
                 <th>Group</th>
-                <td>{{detail.agentGroup}}({{detail.r1}}% : {{detail.r2}}% : {{detail.r3}}%)</td>
+                <td>{{detail.group}}({{detail.rate1}}% : {{detail.rate2}}% : {{detail.rate3}}%)</td>
               </tr>
             <tr>
                 <th>Username</th>

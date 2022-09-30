@@ -51,10 +51,6 @@ export default {
       data: [],
     };
   },
-  mounted() {
-    console.log("mounted", MODAL_KEY);
-    this.reset();
-  },
   computed: {
     ...mapState({
       visible: (state) => state.modals[MODAL_KEY] && state.modals[MODAL_KEY].isVisible,
@@ -64,11 +60,15 @@ export default {
     }),
     styleObject() { return { display: this.visible ? 'block' : 'none' } }
   },
+  mounted() {
+    console.log("mounted", MODAL_KEY);
+    this.reset();
+  },
   methods: {
     async load() {
       var f = this.filters;
-      console.log("load", this.userId, f);
-      await dispatchPaged({ self: this, key: "user/userList" });
+      console.log("load", UV(this.userId), UV(this.filters));
+      var view = await loadPagedView(this, `/partners/views/users/tipLogs`, this.filters);
     },
     reset() {
       hideModal({ self: this, key: MODAL_KEY });

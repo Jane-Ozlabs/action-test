@@ -16,6 +16,7 @@ import { mapState } from 'vuex';
 
 export default {
   components: {},
+  props: [ "stay" ],
   created() {
   },
   computed: mapState({
@@ -28,6 +29,8 @@ export default {
   methods: {
     resetError() {
       this.$store.commit("ERROR", null);
+      if(this.stay) return;
+      
       var access_token = this.$store.getters['auth/accessToken'];
       if(!access_token) this.$router.push({ path: "/login" });
     },
