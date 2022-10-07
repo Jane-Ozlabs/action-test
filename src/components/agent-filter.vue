@@ -43,9 +43,9 @@ export default {
       this.agentLevel >= 2 && a2 && a2[0] && (this.filters.id2 = a2[0].id);
       this.agentLevel >= 3 && a3 && a3[0] && (this.filters.id3 = a3[0].id);
 
-      this.a1 = a1.map(x => ({ text: x.name, value: x.id })); this.a1.unshift({ text: "본사", value: 0 })
-      this.a2 = a2.map(x => ({ text: x.name, value: x.id })); this.a2.unshift({ text: "총판", value: 0 }) 
-      this.a3 = a3.map(x => ({ text: x.name, value: x.id })); this.a3.unshift({ text: "매장", value: 0 })
+      this.a1 = a1.map(x => ({ text: x.name, value: x.id })); this.a1.unshift({ text: "Level 1", value: 0 })
+      this.a2 = a2.map(x => ({ text: x.name, value: x.id })); this.a2.unshift({ text: "Level 2", value: 0 }) 
+      this.a3 = a3.map(x => ({ text: x.name, value: x.id })); this.a3.unshift({ text: "Level 3", value: 0 })
 
       console.log(UV(this.a1));
       console.log(UV(this.a2));
