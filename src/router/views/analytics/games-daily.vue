@@ -14,9 +14,9 @@
             <th colspan="3" class="align-middle text-center">수익 분배</th>
           </tr>
           <tr>
-            <th class="align-middle">본사</th>
-            <th class="align-middle">총판</th>
-            <th class="align-middle">매장</th>
+            <th class="align-middle">Level 1</th>
+            <th class="align-middle">Level 2</th>
+            <th class="align-middle">Level 3</th>
           </tr>
         </b-thead>
         <tbody>

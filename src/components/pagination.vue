@@ -39,7 +39,7 @@ export default {
       var limit = this.limit;
       if(this.windowWidth < 1024) limit = 5;
 
-      this.pageTotal = Math.ceil(this.totalRows / limit) || 1
+      this.pageTotal = Math.ceil(this.totalRows / this.perPage) || 1
       var p = [];
       for(var i = 0; i < limit; i++) {
         var n = this.start+i;
