@@ -454,7 +454,7 @@ main .mainBettingStatus .sortBox .inputBox{ margin-left:0}
 main .mainBettingStatus .summary span{ font-size:11px; margin-right:10px; letter-spacing:-0.05em;}
 main .mainBettingStatus .scrollBox .tableBox{ min-width:700px;}
 
-main .detailArea{ display:none; position:fixed; top:15px; left:15px; width:calc(100% - 30px); max-height:calc(100% - 30px); min-height:0; box-sizing:border-box; background-color:#fff; padding:20px 15px; z-index:9; overflow:auto; border-width:2px;}
+main .detailArea{ display:block; position:fixed; top:15px; left:15px; width:calc(100% - 30px); max-height:calc(100% - 30px); min-height:0; box-sizing:border-box; background-color:#fff; padding:20px 15px; z-index:9; overflow:auto; border-width:2px;}
 main .detailArea .xBtn{ display:block; position:absolute; top:10px; right:10px; z-index:1}
 main .detailArea .xBtn img{ display:block; width:24px;}
 main .detailArea .detailTitle:before{ height:2px;}

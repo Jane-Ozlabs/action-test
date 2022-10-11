@@ -22,9 +22,9 @@
                 </div>
             </li>
         </ul>
-        <div class="check">
+        <!-- <div class="check">
             <input type="checkbox" id="tipCheck" :v-model="nochat"><label for="tipCheck">Don’t show tip in chat</label>
-        </div>
+        </div> -->
         <div class="btnBox">
             <a href="javascript:;" @click="send">SEND</a>
         </div>

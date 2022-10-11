@@ -4,7 +4,7 @@
 
     <slot />
 
-    <ErrorModal />
+    <ErrorModal :stay="true" />
 
     <Footer />
 
@@ -12,7 +12,7 @@
 </template>
 <script>
 export default {
-  components: { ErrorModal, LoadingOverlay },
+  components: { ErrorModal, LoadingOverlay, Footer },
   created() {
       document.body.classList.add('bg-primary')
   },

@@ -7,9 +7,9 @@
         <BSSelect v-model="userFilterType" :options="userFilterOptions" :onChange="userFilterChanged"/>
           <div class="inputBox">
             <input type="text" id="" name="" placeholder="Search" v-model="userFilterValue">
-              <a href="javascript:;" class="searchBtn" @click="search()"><img src="img/icon_search.png"></a>
+              <a href="javascript:;" class="searchBtn" @click="search"><img src="img/icon_search.png"></a>
           </div>
-          <a href="javascript:;" class="btn" @click="download()">Download</a>
+          <a href="javascript:;" class="btn" @click="download">Download</a>
       </div>
     </div>
     <div class="summary"><span><b>Group :</b> {{ summary.group }}</span> <span><b>Member :</b> {{ summary.numUsers }}</span></div>
@@ -85,6 +85,7 @@ export default {
   },
   filters: {},
   mounted() {
+    setMainAreaClass("");
     this.load();
   },
   computed: {
@@ -110,6 +111,7 @@ export default {
       await this.load();
     },    
     async download() {
+      this.updateFilters();
       await downloadView(this, "/partners/views/users");
     },
     updateFilters() {
@@ -152,14 +154,6 @@ export default {
       this.registerVisible = false;
       hideRightPanel();
     },
-    async download() {
-      var agent1 = this.$refs.agentFilter.filters.id1;
-      var agent2 = this.$refs.agentFilter.filters.id2;
-      var agent3 = this.$refs.agentFilter.filters.id3;
-      this.filters.agent1 = agent1; this.filters.agent2 = agent2; this.filters.agent3 = agent3;
-      console.log(this.filters);
-      await this.load({ download: true });
-    },
     userFilterChanged(x) {
       console.log("userFilterChanged", x);
     },
@@ -174,7 +168,7 @@ export default {
   }
 };
 import {usersView} from "@/services/partner";
-import {showRightPanel, hideRightPanel, agentOptions} from "@/utils";
+import {showRightPanel, hideRightPanel, agentOptions, setMainAreaClass} from "@/utils";
 import Layout from "@/router/layouts/main";
 import PageHeader from "@/components/page-header";
 import UserInfoBar from "./userinfobar";

@@ -10,6 +10,7 @@ export function agentOptions({ agentLines, agent1, agent2, agent3 }) {
 }
 
 export function agentLineText({ agentLines, agent1, agent2, agent3 }) {
+  agent1 = Number(agent1); agent2 = Number(agent2); agent3 = Number(agent3);
   console.log("agentLineText", agentLines, agent1, agent2, agent3 );
   var t = "";
   var a1 = agentLines.find(x => agent1 && x.id1 == agent1)

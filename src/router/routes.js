@@ -82,6 +82,11 @@ export default [
         component: () => import('./views/forgot')
     },
     {
+        path: '/change-password',
+        name: 'Change Password',
+        component: () => import('./views/change-password')
+    },
+    {
         path: '/test',
         name: 'Test',
         component: () => import('./views/dashboard/test')

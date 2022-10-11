@@ -18,7 +18,7 @@ export const request = async function(method, url, params, data, headers)
             console.log(res);
 
             let blob = new Blob([res.data], { type: res.headers['content-type'] })
-            var m = res.headers['content-disposition'].match(/filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/);
+            var m = res.headers['content-disposition'] && res.headers['content-disposition'].match(/filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/);
             let fileName = decodeURI(m && m[1] && m[1].replace(/['"]/g, '') || "export.csv")
             if (window.navigator.msSaveOrOpenBlob) {
                 window.navigator.msSaveOrOpenBlob(blob, fileName)}
@@ -34,7 +34,8 @@ export const request = async function(method, url, params, data, headers)
         return res.data;
     } catch(e) {
         var status = e.response && e.response.status || 500;
-        var error = e.response && e.response.data && e.response.data.ClassName || e.name;
+        //var error = e.response && e.response.data && e.response.data.ClassName || e.name;
+        var error = e.response && e.response.data && e.name;
         var message = e.response && e.response.data && e.response.data.Message || e.message;
         console.error("request", status, error, message, e);
         store.commit("ERROR", { error, message });
