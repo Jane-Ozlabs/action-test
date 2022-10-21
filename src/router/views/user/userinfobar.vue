@@ -1,7 +1,7 @@
 
 <template>
   <div class="detailArea detailTable">
-    <a href="javascript:;" class="xBtn" @click="close"><img src="img/icon_close.png"></a>
+    <xbtn />
     <div class="detailTitle"><span>General</span></div>
       <div class="tableBox">
         <table>
@@ -67,7 +67,7 @@
         <table>
             <tr>
                 <th>Cash($)</th>
-                <td>{{ detail.balance | formatCurrency }}</td>
+                <td>{{ detail.cash | formatCurrency }}</td>
               </tr>
             <tr>
                 <th>Bonus($)</th>
@@ -109,13 +109,20 @@
                   </td>
               </tr>
             <tr>
-                <th>Total Tip</th>
-                <td>
-                    <span class="number">{{ detail.totalTip | formatCurrency }}</span>
-                      <a href="javascript:;" class="tip" @click="giveTip">TIP</a>
-                      <a href="javascript:;" class="detailBtn" @click="viewTipLog(detail)">[Detail]</a>
-                  </td>
-              </tr>
+              <th>Total Tip (Received)</th>
+              <td>
+                  <span class="number">{{ detail.totalTipRecv | formatCurrency }}</span>
+                    
+                </td>
+            </tr>
+            <tr>
+              <th>Total Tip (Sent)</th>
+              <td>
+                  <span class="number">{{ detail.totalTipSent | formatCurrency }}</span>
+                    <a href="javascript:;" class="tip" @click="giveTip">TIP</a>
+                    <a href="javascript:;" class="detailBtn" @click="viewTipLog(detail)">[Detail]</a>
+                </td>
+            </tr>
           </table>
       </div>
   </div>

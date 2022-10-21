@@ -16,6 +16,7 @@ import router from '@/router'
 import store from '@/store'
 require('./globals');
 import { formatCurrency, formatCryptoCurrency, formatNumber, formatMonth, formatDate, formatTime, formatDateTime, formatUTCDateTime, formatTimestamp, formatUserStatus } from "@/utils";
+import xbtn from "@/components/xbtn";
 
 import vuetify from './plugins/vuetify'
 //import 'vuetify/dist/vuetify.min.css'
@@ -38,6 +39,7 @@ Vue.use(VueGoogleMaps, {
 })
 Vue.component('ValidationProvider', ValidationProvider);
 Vue.component('ValidationObserver', ValidationObserver);
+Vue.component('xbtn', xbtn);
 Object.keys(rules).forEach(rule => { extend(rule, rules[rule]); });
 
 Vue.filter("formatCurrency", formatCurrency);

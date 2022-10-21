@@ -26,9 +26,9 @@
             <td>{{ x.group }}</td>
             <td>{{ x.username }}</td>
             <td>{{ x.bet | formatCurrency}}</td>
-            <td :color="x.net < 0 ? '#dd3100' : '#006cff'">{{ x.net | formatCurrency}}</td>
-            <td>{{ x.profit0 | formatCurrency }}</td>
-            <td>{{ x.profit1 | formatCurrency }}</td>
+            <td :color="x.winLose < 0 ? '#dd3100' : '#006cff'">{{ x.winLose | formatCurrency}}</td>
+            <td>{{ x.rS0 | formatCurrency }}</td>
+            <td>{{ x.rS1 | formatCurrency }}</td>
             <td :color="x.status == 'pending' ? '#dd3100' : '#000'">{{ x.status }}</td>
           </tr>
         </table>

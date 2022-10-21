@@ -10,7 +10,7 @@
         <div class="profile" @click="logout">
             <img src="img/profile.png"><span class="name">{{me&&me.username}}</span>
         </div> 
-        <a href="javascript:;" class="menuBtn"><img src="img/icon_menu.png"></a>
+        <a href="javascript:;" class="menuBtn" @click='showMenu'><img src="img/icon_menu.png"></a>
     </header>
     <LoadingOverlay />
     <main>
@@ -100,6 +100,9 @@ export default {
       logout();
       this.$router.push("/login");
     },
+    showMenu() {
+      $("nav").addClass("show");
+    }
   }
 };
 import $ from 'jquery';

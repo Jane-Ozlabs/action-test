@@ -7,13 +7,13 @@
             <tr>
               <th>Grade</th>
               <td>
-                <AgentFilter ref="agentFilter" :agentLines="agentLines" :level="agentLevel" noTitle="1" noSearch="1"/>
+                <AgentFilter ref="agentFilter" :agentLines="agentLines" :level="agentLevel" noTitle="1" noSearch="1" new="1" @update="load" />
               </td>
             </tr>
             <tr>
               <th>Group</th>
               <td>
-                <BSSelect v-model="group" :options="agentGroupOptions"/>
+                <BSSelect v-model="group" :options="agentGroupOptions" :readonly="agentGroupOptions.length <= 1" />
                 <p class="per">({{selectedAgentGroup.rate1}}% : {{selectedAgentGroup.rate2}}% : {{selectedAgentGroup.rate3}}%)</p>
               </td>
             </tr>
@@ -58,7 +58,7 @@ import AgentFilter from "@/components/agent-filter";
 
 export default {
   components: { simplebar, AgentFilter, BSSelect },
-  props: ["onReload", "onClose" ],
+  props: ["onClose" ],
   mounted() {
     this.load()
   },
@@ -71,6 +71,7 @@ export default {
   },
   data() {
     return {
+      filters: { agent1: 0, agent2: 0, agent3: 0 },
       username: "",
       password: "",
       password2: "",
@@ -95,14 +96,17 @@ export default {
   },
   methods: {
     async load() {
+      this.filters = { ...this.filters,  agent1: Number(this.$refs.agentFilter.filters.id1)||0, agent2: Number(this.$refs.agentFilter.filters.id2)||0, agent3: Number(this.$refs.agentFilter.filters.id3)||0, };
+      console.log("filters", UV(this.filters))
       var r = await loadView(this, `/partners/views/register`, {});
       console.log("loadView res:", UV(r))
       this.agentGroups = r.agentGroups;
       this.agentLines = r.agentLines;
+      if(this.agentGroups.length <= 1) this.group = this.agentGroupOptions[0].value;
     },
 
     async register() {
-      if(!await ValidOrError(this.v$, "Account registration")) return;
+      if(!await ValidOrError(this, "Account registration")) return;
 
       var user = {
         agent1: this.$refs.agentFilter.filters.id1,
@@ -117,6 +121,11 @@ export default {
       if(user.password != user.password2) {
         return Swal.fire({ text: "Passwords not match",  showCancelButton: false, confirmButtonColor: "#34c38f" });
       }
+      console.log("user", UV(user));
+      if(user.agent1 != '+' && user.agent2 != '+' && user.agent3 != '+') {
+        return Swal.fire({ text: "Please select Grade",  showCancelButton: false, confirmButtonColor: "#34c38f" });
+      }
+      user.agent1 = Number(user.agent1) || 0; user.agent2 = Number(user.agent2) || 0; user.agent3 = Number(user.agent3) || 0;
       
       console.log(user);
 
@@ -130,10 +139,8 @@ export default {
     registrationModalResult: function ()
     {
       console.log("registrationModalResult", this.registrationModalResult)
-      if(!this.registrationModalResult) {
-        this.onReload();
-        hideRightPanel();
-      }
+      this.$emit("reload")
+      hideRightPanel();
     },
     group(x) {
       console.log("watch:group", x);

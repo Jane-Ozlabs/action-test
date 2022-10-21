@@ -85,11 +85,13 @@ export const saveNoAuth = async (self, path, params, body) => {
 
 export const refreshTokenImportant = async () => {
     try {
+        var auth = GetAuth();
+        if((auth && auth.access_token || null) == null) throw { name: "no auth", message: "need login" };
         var res = await request("post", `${API_URL}/partners/refreshtoken`, null, null, { ...authHeaders() });
         console.log("refreshToken: res:", unvue(res));
         var { token: access_token, refresh_token = null, username, email, name, roles, permissions, userAgent } = res;
         SetAuth({ access_token, refresh_token, username, email, name, roles, permissions, userAgent });
-        var auth = GetAuth();
+        auth = GetAuth();
         return { auth };
     } catch(e) {
         ResetAuth();

@@ -30,6 +30,7 @@ class AuthService {
     }
     async login(user) {
         var data = await request("post", process.env.VUE_APP_API_URL + "/partners/token", null, { username: user.username, password: user.password }, { ...authHeaders() });
+        console.log(UV(data))
         return data;
     }
     async logout() {}

@@ -3,7 +3,9 @@
     <a href="javascript:;" class="xBtn" @click="reset"><img src="img/icon_close_s.png"></a>
     <div class="popupTitle"><span>Win/Lose</span></div>
     <div class="contents">
-        <div class="summary">Period : {{ summary.dateFrom | formatDate }} ~ {{ summary.dateTo | formatDate }} <b>Cash balance($) : {{ summary.total | formatCurrency }}</b></div>
+        <div class="summary">Period : {{ summary.dateFrom | formatDate }} ~ {{ summary.dateTo | formatDate }}
+          <b style="display: none;">Cash balance($) : {{ summary.total | formatCurrency }}</b>
+        </div>
         <div class="scrollBox">
             <div class="tableBox">
             	<ul class="thBox">

@@ -15,38 +15,38 @@
             <th><p>Bet</p></th>
             <th class="radiusRight"><p>Win/Lose</p></th>
               
-            <th class="radiusLeft"><p>Headquarter</p></th>
-            <th><p>Distributor</p><span class="absText">Revenue share</span></th>
-            <th><p>Shop</p></th>
+            <th class="radiusLeft"><p>Level 1</p></th>
+            <th><p>Level 2</p><span class="absText">Revenue share</span></th>
+            <th><p>Level 3</p></th>
           </tr>
           <tr class="total" v-if="summary">
             <th><p>Total</p></th>
-            <th><p>{{ summary.date }}~{{ summary.dateTo }}</p></th>
+            <th><p>{{ summary.date | formatMonth }}~{{ summary.dateTo | formatMonth }}</p></th>
             <th><p>&nbsp;</p></th>
             <th><p>&nbsp;</p></th>
             <th><p>{{summary.bet | formatCurrency}}</p></th>
             <th><p><font color="#dd3100">{{summary.winLose | formatCurrency}}</font></p></th>
             <th><p>{{summary.rS1 | formatCurrency}}</p></th>
-            <th><p>{{summary.rS1 | formatCurrency}}</p></th>
-            <th><p>{{summary.rS1 | formatCurrency}}</p></th>
+            <th><p>{{summary.rS2 | formatCurrency}}</p></th>
+            <th><p>{{summary.rS3 | formatCurrency}}</p></th>
           </tr>
           <tr v-for="x of rows" :key="x.id" @click="viewDetail(x)">
-            <td>{{ x.date | formatDate }}</td>
+            <td>{{ x.date | formatMonth }}</td>
             <td>{{ x.grade }}</td>
             <td>{{ x.group }}</td>
             <td>{{ x.username }}</td>
             <td>{{ x.bet | formatCurrency}}</td>
             <td>{{ x.winLose | formatCurrency}}</td>
             <td>{{ x.rS1 | formatCurrency }}</td>
-            <td>{{ x.rS1 | formatCurrency }}</td>
-            <td>{{ x.rS1 | formatCurrency }}</td>
+            <td>{{ x.rS2 | formatCurrency }}</td>
+            <td>{{ x.rS3 | formatCurrency }}</td>
           </tr>
         </table>
       </div>
     </div>
     <Pagination v-model="filters.page" :totalRows="filters.total" :perPage="filters.perPage" limit="10" @input="load()"/>
     <template v-slot:right>
-        <UserMonthView :userid="userid" :month="month" v-if="detailVisible" />
+        <UserMonthView :userId="userId" :date="date" v-if="detailVisible" />
     </template>
   </Layout>
 </template>
@@ -67,7 +67,7 @@ export default {
       agentLines: [],
 
       detailVisible: false,
-      userid: 0,
+      userId: 0,
       username: "",
       date: "",
     };
@@ -118,11 +118,11 @@ export default {
     async download() {
       await download(this, "/partners/views/revenue/monthly", {});
     },
-    async viewDetail({ userid, username, date }) {
+    async viewDetail(x) {
+      console.log(UV(x))
       this.detailVisible = true;
-      this.userid = userid;
-      this.username = username;
-      this.date = date;
+      this.userId = x.userId;
+      this.date = x.date;
 
       showRightPanel();
     },

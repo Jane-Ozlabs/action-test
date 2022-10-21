@@ -1,6 +1,6 @@
 <template>
   <div class="detailArea detailSendEmail">
-    <a href="javascript:;" class="xBtn"><img src="img/icon_close.png" /></a>
+    <xbtn />
     <div class="detailTitle"><span>Send email</span></div>
     <div class="tableBox">
       <table>
@@ -73,7 +73,7 @@ export default {
       this.subject = r.subject;
       this.content = r.content;
       this.agentLines = r.agentLines;
-      this.tags = r.targets.split(";").map(x => ({ text: agentLineText({ agentLines: this.agentLines, agent1: x.split("#")[0], agent2: x.split("#")[1], agent3: x.split("#")[2] }) + " 전체회원", value: x }));
+      this.tags = r.targets.split(";").map(x => ({ text: agentLineText({ agentLines: this.agentLines, agent1: x.split("#")[0], agent2: x.split("#")[1], agent3: x.split("#")[2] }) + " all members", value: x }));
       console.log(UV(this.tags))
     },
     async save() {
@@ -83,7 +83,7 @@ export default {
 
       var r = await save(this, `/partners/emails/${this.emailId}`, null, em);
 
-      await Swal.fire({ text: "임시 저장되었습니다", showCancelButton: false, confirmButtonColor: "#34c38f", });
+      await Swal.fire({ text: "Sucess!", showCancelButton: false, confirmButtonColor: "#34c38f", });
 
       this.$emit("reload")
     },
@@ -94,7 +94,7 @@ export default {
 
       var r = await save(this, `/partners/emails/${this.emailId}`, null, em);
 
-      await Swal.fire({ text: "발송되었습니다", showCancelButton: false, confirmButtonColor: "#34c38f", });
+      await Swal.fire({ text: "Sucess!", showCancelButton: false, confirmButtonColor: "#34c38f", });
 
       this.$emit("reload")
     },
@@ -113,7 +113,7 @@ export default {
           agent1: this.$refs.agentFilter.filters.id1,
           agent2: this.$refs.agentFilter.filters.id2,
           agent3: this.$refs.agentFilter.filters.id3,
-        }) + " 전체회원";
+        }) + " all members";
       console.log(UV(text));
       this.tags.push({ text: text, value: `${this.$refs.agentFilter.filters.id1}#${this.$refs.agentFilter.filters.id2}#${this.$refs.agentFilter.filters.id3}` })
     },
@@ -127,7 +127,7 @@ export default {
           agent1: this.$refs.agentFilter.filters.id1,
           agent2: this.$refs.agentFilter.filters.id2,
           agent3: this.$refs.agentFilter.filters.id3,
-        }) + " 전체회원";
+        }) + " all members";
     },
   },
   watch: {

@@ -1,6 +1,6 @@
 <template>
   <nav>
-      <a href="javascript:;" class="xBtn"><img src="img/icon_close.png"></a>
+      <xbtn />
       <div class="dateBox">
           <p>UTC : <ClockUTC /></p>
           <p>KST : <ClockKST /></p>
@@ -11,7 +11,7 @@
               <div class="subNav">
                   <router-link tag="a" to="/user/users" class="side-nav-link-ref">All Members</router-link>
                   <router-link tag="a" to="/user/emails" class="side-nav-link-ref">Send email</router-link>
-                  <router-link tag="a" to="/user/groups" class="side-nav-link-ref">Revenue distribution</router-link>
+                  <router-link tag="a" to="/user/groups" class="side-nav-link-ref" v-if="isHQ">Revenue distribution</router-link>
               </div>
           </li>
           <li>

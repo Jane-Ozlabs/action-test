@@ -113,8 +113,14 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>Total Tip</td>
-                    <td>{{ detail.totalTip | formatCurrency }}</td>
+                    <td>Tip(Received)</td>
+                    <td>{{ detail.totalTipRecv | formatCurrency }}</td>
+                    <td>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Tip(Sent)</td>
+                    <td>{{ detail.totalTipSent | formatCurrency }}</td>
                     <td>
                       <a href="javascript:void(0);" class="text-primary" data-toggle="tooltip" data-placement="top" v-b-tooltip.hover title="Tip Detail" @click="viewTipLog(detail)">Detail</a>
                     </td>

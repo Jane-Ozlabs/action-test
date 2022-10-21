@@ -1,6 +1,6 @@
 <template>
   <nav>
-      <a href="javascript:;" class="xBtn"><img src="img/icon_close.png"></a>
+      <xbtn />
       <div class="dateBox">
           <p>UTC : <ClockUTC /></p>
           <p>KST : <ClockKST /></p>                
