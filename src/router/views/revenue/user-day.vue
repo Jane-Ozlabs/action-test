@@ -1,41 +1,33 @@
 <template>
   <div class="detailArea detailTable">
-    <a href="javascript:;" class="xBtn"><img src="img/icon_close.png"></a>
-    <div class="detailTitle"><span>Date : {{date}}, Username : {{userId}}</span></div>
-      <div class="tableBox">
-        <table class="tb02">
-            <tr>
-                <th><p>Date</p></th>
-                <th style="width:35%"><p style="text-align:left">Game</p></th>
-                <th><p>Bet</p></th>
-                <th><p>Win/Lose</p></th>
-              </tr>
-            <tr class="total">
-                <th>&nbsp;</th>
-                <th style="text-align:left">Total</th>
-                <th>100,000.00</th>
-                <th><font color="#dd3100">- 9,000.00</font></th>
-              </tr>
-              <tr>
-                <td>23:25:59</td>
-                <td style="text-align:left">Gates of Olympus</td>
-                <td>100,000.00</td>
-                <td><font color="#006cff">+ 9,000.00</font></td>
-              </tr>
-              <? for($i=0;$i<5;$i++){ ?>
-              <tr>
-                <td>23:25:59</td>
-                <td style="text-align:left">Gates of Olympus</td>
-                <td>100,000.00</td>
-                <td><font color="#dd3100">- 9,000.00</font></td>
-              </tr>
-              <? } ?>
-          </table>
-      </div>
+    <xbtn />
+    <div class="detailTitle"><span>Date : {{ summary.date | formatDate }}, Username : {{ summary.username }}</span></div>
+    <div class="tableBox">
+      <table class="tb02">
+        <tr>
+          <th><p>Date</p></th>
+          <th style="width: 35%"><p style="text-align: left">Game</p></th>
+          <th><p>Bet</p></th>
+          <th><p>Win/Lose</p></th>
+        </tr>
+        <tr class="total">
+          <th>&nbsp;</th>
+          <th style="text-align: left">Total</th>
+          <th>{{summary.bet | formatCurrency}}</th>
+          <th><font color="#dd3100">{{summary.winLose | formatCurrency}}</font></th>
+        </tr>
+        <tr v-for="x of rows" :key="x.id">
+          <td>{{x.dateTime | formatDateTime}}</td>
+          <td style="text-align: left">{{x.game}}</td>
+          <td>{{x.bet | formatCurrency}}</td>
+          <td><font :color="colorWinLose(x)">{{x.winLose | formatCurrency}}</font></td>
+        </tr>
+      </table>
+    </div>
   </div>
 </template>
 <script>
-const moment = require('moment');
+const moment = require("moment");
 import Layout from "@/router/layouts/main";
 import PageHeader from "@/components/page-header";
 import AgentFilter from "@/components/agent-filter";
@@ -46,66 +38,51 @@ import appConfig from "@/app.config";
 export default {
   page: {
     title: "일별 매출 현황",
-    meta: [{ name: "description", content: appConfig.description }]
+    meta: [{ name: "description", content: appConfig.description }],
   },
   components: { Layout, PageHeader, AgentFilter, DayFilter, UserFilter },
-  props: {
-    userId: {},
-    date: {},
-  },
+  props: { userId: {}, date: {} },
   data() {
     return {
       title: "일별 매출 현황",
-      items: [],
-      filters: { n1: "", n2: "", n3: "", dateFrom: "", dateTo: "", username: "" },
+      filters: { dateFrom: "", dateTo: "", username: "" },
+      rows: [],
+      summary: { date: "", username: "", bet: 0, winLose: 0 },
     };
   },
-  filters: {
-  },
-  computed: {
-  },
+  filters: {},
+  computed: {},
   mounted() {
-    console.log(this.$route.params);
-    var { filters } = this.$route.params;
-    if(filters) {
-      this.filters.provider = filters.provider;
-      this.filters.game = filters.game;
-      this.filters.term = filters.term;
-    }
-    if(!this.filters.provider) this.filters.provider = "bettingspoon";
-    if(!this.filters.game) this.filters.game = "all";
-    if(!this.filters.term) this.filters.term = "d";
-    this.daysChanged();
+    this.load();
   },
   methods: {
     async load() {
-      var view = await revenueDailyUserView({ ...this.filters });
-      console.log(view);
+      this.updateFilters();
+
+      this.rows = [];
+      var res = await loadPagedView(this, `/partners/views/revenue/daily/${this.userId}`, {});
+      console.log("loadPagedView", UV(res));
+
+      this.summary = res.summary;
     },
-    async search() {
-      console.log(this.$refs.agentFilter.filters);
-      console.log(this.$refs.dayFilter.filters);
-      return;
-      if(!this.filters.provider || !this.filters.game || !this.filters.term) { this.$store.commit("ERROR", { error: "Error", message: "Invalid Filter Values" }); return; };
-      return await this.$refs.dataView.search();
+    updateFilters() {
+      this.filters.dateFrom = moment(this.date).startOf("day").format("YYYY-MM-DD");
+      this.filters.dateTo = moment(this.date)
+        .startOf("day")
+        .add(1, "day")
+        .format("YYYY-MM-DD");
     },
-    daysChanged() {
-      var from = moment().utc().subtract(0, 'days').startOf('day');
-      var to = moment().utc().startOf('day');
-      this.filters.dateFrom = from.format('YYYY-MM-DD');
-      this.filters.dateTo = to.format('YYYY-MM-DD');
-      this.filters.monthFrom = from.format('YYYY-MM');
-      this.filters.monthTo = to.format('YYYY-MM');
-      console.log(this.filters.dateFrom, this.filters.dateTo, from.unix(), to.unix());
+    colorWinLose(x) {
+      return x.winLose < 0 ? '#006cff' : '#dd3100';
     },
-    dateChanged() {
-      console.log("dateChanged", this.filters.dateFrom, this.filters.dateTo)
+  },
+  watch: {
+    userId() {
+      this.load();
     },
-    async download() {
-      console.log("download", this.filters);
-      return await this.$refs.dataView.download();
-    }
+    date() {
+      this.load();
+    },
   },
 };
-import {revenueDailyUserView} from "@/services/partner";
 </script>

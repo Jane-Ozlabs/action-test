@@ -3,7 +3,7 @@
     <a href="javascript:;" class="xBtn" @click="reset"><img src="img/icon_close_s.png"></a>
     <div class="popupTitle"><span>Tip</span></div>
     <div class="contents">
-      <div class="summary">Period : {{ dateFrom }} ~ {{ dateTo }} <b>Tip($) : {{ balance }}</b></div>
+      <div class="summary">Period : {{ summary.dateFrom | formatDate }} ~ {{ summary.dateTo | formatDate }} <b>Tip($) : {{ summary.total | formatCurrency }}</b></div>
       <div class="scrollBox">
           <div class="tableBox">
             <ul class="thBox">
@@ -14,8 +14,8 @@
                 <li class="item05"><p>Balance ($)</p></li>
               </ul>
               <ul class="tdBox">
-                <li v-for="item of data" :key="item.id">
-                  <p class="item01">{{ item.createdAt | formatDate }}<span class="time">{{ item.createdAt | formatTime }}</span></p>
+                <li v-for="item of rows" :key="item.id">
+                  <p class="item01">{{ item.dateTime | formatDate }}<span class="time">{{ item.dateTime | formatTime }}</span></p>
                   <p class="item02">{{ item.from }}</p>
                   <p class="item03">{{ item.to }}</p>
                   <p class="item04">{{ item.amount | formatCurrency }}</p>
@@ -42,20 +42,22 @@ export default {
   data() {
     return {
       MODAL_KEY,
+      filters: { dateFrom: "", dateTo: "", userId: 0 },
+      summary: {},
       dateFrom: "",
       dateTo: "",
       balance: 0,
       perPage: 20,
       page: 1,
       total: 0,
-      data: [],
+      rows: [],
     };
   },
   computed: {
     ...mapState({
       visible: (state) => state.modals[MODAL_KEY] && state.modals[MODAL_KEY].isVisible,
       title: (state) => state.modals[MODAL_KEY] && state.modals[MODAL_KEY].title || "Tip",
-      filters: (state) => state.modals[MODAL_KEY] && state.modals[MODAL_KEY].filters,
+      initialfilters: (state) => state.modals[MODAL_KEY] && state.modals[MODAL_KEY].filters,
       userId: (state) => state.modals[MODAL_KEY] && state.modals[MODAL_KEY].userId,
     }),
     styleObject() { return { display: this.visible ? 'block' : 'none' } }
@@ -66,8 +68,9 @@ export default {
   },
   methods: {
     async load() {
-      var f = this.filters;
+      this.filters = {...this.initialfilters, userId: this.userId};
       console.log("load", UV(this.userId), UV(this.filters));
+      this.rows = [];
       var view = await loadPagedView(this, `/partners/views/users/tipLogs`, this.filters);
     },
     reset() {

@@ -15,9 +15,9 @@
             <th><p>Bet</p></th>
             <th class="radiusRight"><p>Win/Lose</p></th>
               
-            <th class="radiusLeft"><p>Headquarter</p></th>
-            <th><p>Distributor</p><span class="absText">Revenue share</span></th>
-            <th><p>Shop</p></th>
+            <th class="radiusLeft"><p>Level 1</p></th>
+            <th><p>Level 2</p><span class="absText">Revenue share</span></th>
+            <th><p>Level 3</p></th>
           </tr>
           <tr class="total" v-if="summary">
             <th><p>Total</p></th>
@@ -38,15 +38,15 @@
             <td>{{ x.bet | formatCurrency}}</td>
             <td>{{ x.winLose | formatCurrency}}</td>
             <td>{{ x.rS1 | formatCurrency }}</td>
-            <td>{{ x.rS1 | formatCurrency }}</td>
-            <td>{{ x.rS1 | formatCurrency }}</td>
+            <td>{{ x.rS2 | formatCurrency }}</td>
+            <td>{{ x.rS3 | formatCurrency }}</td>
           </tr>
         </table>
       </div>
     </div>
     <Pagination v-model="filters.page" :totalRows="filters.total" :perPage="filters.perPage" limit="10" @input="load()"/>
     <template v-slot:right>
-        <UserDayView :userid="userid" :date="date" v-if="detailVisible" />
+        <UserDayView :userId="userId" :date="date" v-if="detailVisible" />
     </template>
   </Layout>
 </template>
@@ -67,8 +67,7 @@ export default {
       agentLines: [],
 
       detailVisible: false,
-      userid: 0,
-      username: "",
+      userId: 0,
       date: "",
     };
   },
@@ -118,11 +117,11 @@ export default {
     async download() {
       await download(this, "/partners/views/revenue/daily", {});
     },
-    async viewDetail({ username, date }) {
+    async viewDetail(x) {
+      console.log(UV(x))
       this.detailVisible = true;
-      this.userid = userid;
-      this.username = username;
-      this.date = date;
+      this.userId = x.userId;
+      this.date = x.date;
 
       showRightPanel();
     },

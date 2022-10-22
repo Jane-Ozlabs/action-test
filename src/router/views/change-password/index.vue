@@ -75,7 +75,7 @@ export default {
   },
   methods: {
     async submit() {
-      if(!await ValidOrError(this.v$, "Change password")) return;
+      if(!await ValidOrError(this, "Change password")) return;
 
       await saveNoAuth(this, "/partners/changepassword", null, {email: this.$route.query.e, password: this.password, newPassword: this.newpassword, newPasswordConfirmation: this.newpassword2, token: this.$route.query.c })
 

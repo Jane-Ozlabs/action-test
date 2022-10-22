@@ -1,7 +1,7 @@
 
 <template>
   <div class="detailArea addGroup detailTable">
-    <a href="javascript:;" class="xBtn"><img src="img/icon_close.png"></a>
+    <xbtn />
     <div class="detailTitle"><span>Revenue share ratio</span></div>
       <div class="tableBox">
         <table>
@@ -12,21 +12,21 @@
                   </td>
               </tr>
               <tr>
-                <th>Fee Headquarters (%)</th>
+                <th>Level 1 (%)</th>
                 <td>
                     <div class="inputBox small"><input type="text" id="" name="" value="10" v-model="form.rate1" ></div>
                       <span class="per">%</span>
                   </td>
               </tr>
               <tr>
-                <th>Fee Distributers (%)</th>
+                <th>Level 2 (%)</th>
                 <td>
                     <div class="inputBox small"><input type="text" id="" name="" value="10" v-model="form.rate2" ></div>
                       <span class="per">%</span>
                   </td>
               </tr>
               <tr>
-                <th>Fee Branch (%)</th>
+                <th>Level 3 (%)</th>
                 <td>
                     <div class="inputBox small"><input type="text" id="" name="" value="10" v-model="form.rate3" ></div>
                       <span class="per">%</span>
@@ -88,10 +88,10 @@ export default {
       console.log("validate", isvalid, UV(this.form))
       if(!isvalid) return;
 
-      if(!this.form.name) return Swal.fire({ text: "Please enter a valid value",  showCancelButton: false, confirmButtonColor: "#34c38f" })
+      if(!this.form.name) return Swal.fire({ text: "Please enter a group name.",  showCancelButton: false, confirmButtonColor: "#34c38f" })
 
       console.log(Number(this.form.rate1)+Number(this.form.rate2)+Number(this.form.rate3));
-      if(Number(this.form.rate1)+Number(this.form.rate2)+Number(this.form.rate3) != 100) return Swal.fire({ text: "합계가 100%가 되도록 입력해주세요.",  showCancelButton: false, confirmButtonColor: "#34c38f" })
+      if(Number(this.form.rate1)+Number(this.form.rate2)+Number(this.form.rate3) != 100) return Swal.fire({ text: "Please input rate values so that total is 100%",  showCancelButton: false, confirmButtonColor: "#34c38f" })
 
       showModal({ self: this, key: 'commissions-save-modal' });
     },
@@ -104,7 +104,7 @@ export default {
       this.form.rate2 = r.rate2;
       this.form.rate3 = r.rate3;
 
-      await Swal.fire({ text: "저장되었습니다",  showCancelButton: false, confirmButtonColor: "#34c38f" });
+      await Swal.fire({ text: "Sucess!",  showCancelButton: false, confirmButtonColor: "#34c38f" });
 
       this.$emit("reload");
     }

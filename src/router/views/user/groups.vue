@@ -7,9 +7,9 @@
                 <tr>
                     <th style="width:10%"><p>NO</p></th>
                     <th style="width:30%" class="radiusRight"><p>Group name</p></th>
-                    <th style="width:20%" class="radiusLeft"><p>Headquarter</p></th>
-                    <th style="width:20%"><p>Branch</p><span class="absText">Revenue share ratio (%)</span></th>
-                    <th style="width:20%"><p>Branch</p></th>
+                    <th style="width:20%" class="radiusLeft"><p>Level 1</p></th>
+                    <th style="width:20%"><p>Level 2</p><span class="absText">Revenue share ratio (%)</span></th>
+                    <th style="width:20%"><p>Level 3</p></th>
                   </tr>
                   <tr v-for="item of rows" :key="item.id" @click="edit(item, $event)">
                     <td>{{ item.id }}</td>

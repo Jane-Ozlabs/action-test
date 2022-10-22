@@ -1,7 +1,8 @@
 // service/validation.js
-export async function ValidOrError(v, title) {
-  v.$touch();
-  var validation = await v.$validate();
+export async function ValidOrError(self, title) {
+  const v = self.v$;
+  await v.$touch();
+  const validation = await v.$validate();
   console.log("ValidOrError", validation, UV(v));
   if(validation) return true;
 

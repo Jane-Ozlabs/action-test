@@ -62,14 +62,14 @@ export default {
     email: { required },
   },
   computed: {
-    loggedIn() { return this.$store.getters["auth/isAuthenticated"]; }
+    loggedIn() { return IsAuthenticated(); },
   },
   mounted() {
   },
   methods: {
     async submit() {
       console.log("submit", this.email)
-      var rp = await resetPasswordUser({ email: this.email });
+      var rp = await requestNoAuth("get", "/partners/iforgot", { email: this.email });
       console.log("rp", rp);
       this.complete = true;
     },

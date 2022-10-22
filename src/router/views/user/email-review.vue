@@ -1,6 +1,6 @@
 <template>
   <div class="detailArea detailTable">
-    <a href="javascript:;" class="xBtn"><img src="img/icon_close.png"></a>
+    <xbtn />
     <div class="detailTitle"><span>Send email list</span></div>
       <div class="tableBox">
         <table>

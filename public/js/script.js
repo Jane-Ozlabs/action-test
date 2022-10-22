@@ -1,12 +1,14 @@
 
 $(function(){
-	$(".select label").click(function() {
+	$(".select label").on("click", function() {
 		console.log(".select label")
 	})
-	$('html').click(function(e){
-		if($(e.target).parents('.select').length < 1){
-			$(".select label").removeClass("on");
-		}
+	$('header .menuBtn').on("click", function(){
+		console.log("header .menuBtn")
+		$("nav").addClass("show");
+	});
+	$('nav .xBtn').click(function(){
+		$("nav").removeClass("show");
 	});
   $(".select label").on("click", function(){
 		$(".select label").removeClass("on");
@@ -17,7 +19,11 @@ $(function(){
 		label.text($(this).text());
 		label.removeClass("on");
     });
-	
+	$('html').click(function(e){
+		if($(e.target).parents('.select').length < 1){
+			$(".select label").removeClass("on");
+		}
+	});
 });
 
 function popup_open(name){
@@ -27,14 +33,6 @@ function popup_close(name){
 	$("#"+name).hide();
 }
 
-$(function(){
-	$('header .menuBtn').click(function(){
-		$("nav").addClass("show");
-	});
-	$('nav .xBtn').click(function(){
-		$("nav").removeClass("show");
-	});
-});
 
 $(function(){
 	$('main .mainArea .scrollBox .tableBox table td').click(function(){
