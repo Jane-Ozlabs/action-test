@@ -1,7 +1,9 @@
 const path = require("path");
 
 module.exports = {
-    publicPath: "/partner",
+    publicPath: "/",
+    // outputDir: "dist/partner",
+    // indexPath: "../index.html",
     devServer: {
         allowedHosts: "all",
     },
