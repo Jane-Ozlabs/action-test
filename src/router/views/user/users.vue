@@ -51,7 +51,7 @@
     </div>
     <template v-slot:right>
       <RegisterBar @reload="load" @close="closeRightPanel" v-if="registerVisible"/>
-      <UserInfoBar :userId="userId" :agentLines="agentLines" :agentLevel="agentLevel" :onClose="closeRightPanel" v-if="userInfoVisible"/>
+      <UserInfoBar :userId="userId" :agentLines="agentLines" :agentLevel="agentLevel" :onClose="closeRightPanel" v-if="userInfoVisible" @reload="load"/>
     </template>
   </Layout>
 </template>

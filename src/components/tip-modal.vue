@@ -60,6 +60,7 @@ export default {
       title: (state) => state.modals[MODAL_KEY] && state.modals[MODAL_KEY].title || "Tip",
       initialFilters: (state) => state.modals[MODAL_KEY] && state.modals[MODAL_KEY].filters,
       userId: (state) => state.modals[MODAL_KEY] && state.modals[MODAL_KEY].userId,
+      onClose: (state) => state.modals[MODAL_KEY] && state.modals[MODAL_KEY].onClose,
     }),
     styleObject() { return { display: this.modalVisible ? 'block' : 'none' } }
   },
@@ -76,6 +77,8 @@ export default {
     async send() {
       console.log("send", this.userId, this.amount);
       await save(this, `/partners/views/users/tips`, null, { userId: this.userId, amount: this.amount });
+      await Swal.fire({ text: "Sucess!",  showCancelButton: false, confirmButtonColor: "#34c38f" });
+      this.load()
     }
   },
   watch: {
