@@ -176,7 +176,7 @@ export default {
       showModal({ self: this, key: "tip-log-modal", data: { userId: this.userId } });
     },
     giveTip(data) {
-      showModal({ self: this, key: "tip-modal", data: { userId: this.userId } });
+      showModal({ self: this, key: "tip-modal", data: { userId: this.userId, onClose: () => { console.warn("onClose", this); this.$emit("reload")} }, } );
     }
   },
   watch: {
