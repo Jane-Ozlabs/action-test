@@ -21,7 +21,7 @@
       <slot v-if="rightPanelVisible" name="right"/>
 
       <PasswordResetModal />
-      <ReferralModal />
+      <AffiliateModal />
       <AccountRegistrationModal />
       <CommissionsSaveModal />
       <BonusLogModal />
@@ -45,7 +45,7 @@ export default {
     breadcrumb: { default() { return []; } }
   },
   components: { SideNav, SideBar, RightBar, Footer, DatePicker, 
-    PasswordResetModal, ReferralModal, AccountRegistrationModal, CommissionsSaveModal,
+    PasswordResetModal, AffiliateModal, AccountRegistrationModal, CommissionsSaveModal,
     ErrorModal, BonusLogModal, GameLogModal, CashLogModal, TipLogModal, TipModal,
     LoadingOverlay
   },
@@ -149,7 +149,7 @@ import LoadingOverlay from '@/components/loading-overlay';
 import DatePicker from "vue2-datepicker";
 import Footer from "./footer";
 import PasswordResetModal from "@/components/password-reset-modal";
-import ReferralModal from "@/components/referral-modal";
+import AffiliateModal from "@/components/affiliate-modal";
 import AccountRegistrationModal from "@/components/account-registration-modal";
 import CommissionsSaveModal from "@/components/commissions-save-modal";
 import BonusLogModal from '@/components/bonus-log-modal';

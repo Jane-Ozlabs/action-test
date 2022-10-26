@@ -33,7 +33,7 @@
                     <td>{{ data.grade }}</td>
                     <td>{{ data.group }}</td>
                     <td>{{ data.username }}</td>
-                    <td>{{ data.partnerCode }} <a href="javascript:;" class="xrefBtn" @click="openReferral(data)"></a></td>
+                    <td>{{ data.partnerCode }}<a href="javascript:;" class="refBtn" @click="openAffiliate(data)" v-if="data.grade=='Level 3'"></a></td>
                     <td>{{ data.mobile }}</td>
                     <td>{{ data.email }}</td>
                     <td>{{ data.balance | formatCurrency }}</td>
@@ -133,9 +133,9 @@ export default {
       var { id, email } = data;
       this.$store.commit("MODAL", { key: MODAL_KEY, data: { isVisible: true, userId: id, email }, });
     },
-    async openReferral(data) {
-      var { id, email, referral } = data;
-      this.$store.commit("MODAL", { key: "referral-modal", data: { isVisible: true, referral: referral }, });
+    async openAffiliate(data) {
+      var { id, email, partnerCode } = data;
+      this.$store.commit("MODAL", { key: "affiliate-modal", data: { isVisible: true, affiliate: partnerCode }, });
     },
     async viewDetail(data, e) {
       this.userInfoVisible = true;
