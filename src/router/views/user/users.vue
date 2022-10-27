@@ -134,8 +134,8 @@ export default {
       this.$store.commit("MODAL", { key: MODAL_KEY, data: { isVisible: true, userId: id, email }, });
     },
     async openAffiliate(data) {
-      var { id, email, partnerCode } = data;
-      this.$store.commit("MODAL", { key: "affiliate-modal", data: { isVisible: true, affiliate: partnerCode }, });
+      var { id, email, username, partnerCode } = data;
+      this.$store.commit("MODAL", { key: "affiliate-modal", data: { isVisible: true, affiliate: username }, });
     },
     async viewDetail(data, e) {
       this.userInfoVisible = true;
