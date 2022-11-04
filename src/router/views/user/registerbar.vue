@@ -86,7 +86,7 @@ export default {
   validations() {
     return {
       group: { group: helpers.withMessage("Please select a valid group.", (x) => x > 0) },
-      username: { required: helpers.withMessage("Please input a valid username", required) },
+      username: { required: helpers.withMessage("Please input a valid username", required), mustBeUsername: helpers.withMessage("Please enter a valid username.", mustBeUsername) },
       email: { email: helpers.withMessage("Please ensure you enter a valid email address.", email), required: helpers.withMessage("Please enter a valid email address.", required) },
       password: { required: helpers.withMessage("Please enter a valid password", required), 
         length: helpers.withMessage("Your password should be 6~18 characters long.", and(minLength(6), maxLength(18))),
@@ -160,6 +160,6 @@ import {showModal,hideModal, hideRightPanel,dispatchPaged,} from "@/utils";
 import { mapState } from 'vuex';
 import { useVuelidate } from '@vuelidate/core'
 import { required, email, sameAs, minLength, maxLength, and, or, helpers } from '@vuelidate/validators'
-import { mustBePassword } from "@/utils/validators"
+import { mustBePassword, mustBeUsername } from "@/utils/validators"
 
 </script>
