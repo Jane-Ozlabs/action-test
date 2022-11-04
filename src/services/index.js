@@ -6,7 +6,7 @@ export const loadView = async (self, path, params) => {
 
     console.log("loadView", path, unvue(filters), unvue(params));
 
-    await refreshToken();
+    //await refreshToken();
     var res = await requestAuth("get", path, { ...filters, ...(params||{}) });
 
     self.filters = { ...res.filters };
@@ -26,7 +26,7 @@ export const loadPagedView = async (self, path, params) => {
 
     console.log("loadPagedView", path, unvue(filters), unvue(params));
 
-    await refreshToken();
+    //await refreshToken();
     var res = await requestAuth("get", path, { ...filters, ...(params||{}) });
 
     self.filters = { ...res.filters, page: res.page, perPage: res.perPage, total: res.total };
