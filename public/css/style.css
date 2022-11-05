@@ -120,11 +120,11 @@ main .mainArea .sortBox{ margin-top:30px; margin-bottom:50px;}
 main .mainArea .sortBox:after{ content:""; display:block; clear:both}
 main .mainArea .sortBox .selectBox{ float:left;}
 main .mainArea .sortBox .select{ position:relative; display:inline-block; vertical-align:middle; width:120px; border-bottom:3px solid #dc2f00; margin-right:10px;}
-main .mainArea .sortBox .select label{ display:block; width:100%; line-height:35px; font-size:16px; font-weight:500; color:#dc2f00; background-image:url(../img/icon_select.png); background-position:right 5px center; background-repeat:no-repeat; background-size:12px; cursor:pointer}
+main .mainArea .sortBox .select label{ display:block; width:100%; line-height:35px; font-size:16px; font-weight:500; color:#dc2f00; background-image:url(../img/icon_select.png); background-position:right 5px center; background-repeat:no-repeat; background-size:12px; cursor:pointer; padding-right: 5px; text-overflow: ellipsis; overflow: hidden;}
 main .mainArea .sortBox .select label.on{}
 main .mainArea .sortBox .select label.on + ul{ display:block !important}
-main .mainArea .sortBox .select ul{ display:none; position:absolute; top:40px; left:-10px; width:100%; padding:10px; border:2px solid #dc2f00; border-radius:5px; background-color:#fff; z-index:2;}
-main .mainArea .sortBox .select ul li{ display:block; width:100%; font-size:16px; font-weight:500; color:#676767; padding:5px 10px; box-sizing:border-box; line-height:1.4; text-align:left; cursor:pointer}
+main .mainArea .sortBox .select ul{ display:none; position:absolute; top:40px; left:-10px; width:100%; padding:10px; border:2px solid #dc2f00; border-radius:5px; background-color:#fff; z-index:2; width: 120px;}
+main .mainArea .sortBox .select ul li{ display:block; width:100%; font-size:16px; font-weight:500; color:#676767; padding:5px 10px; box-sizing:border-box; line-height:1.4; text-align:left; cursor:pointer; text-overflow: ellipsis; overflow: hidden;}
 main .mainArea .sortBox .select ul li.selected,
 main .mainArea .sortBox .select ul li:hover{ color:#fff; background-color:#dc2f00; border-radius:5px;}
 main .mainArea .sortBox .searchBox{ float:right;}
@@ -207,11 +207,11 @@ main .detailArea .tableBox table td .number{ width:calc(100% - 120px); font-size
 main .detailArea .tableBox table td .detailBtn{ position:absolute; top:50%; transform:translateY(-50%); right:0; font-size:14px; font-weight:400; color:#414141; display:inline-block; border-bottom:1px solid #414141;}
 main .detailArea .tableBox table td .tip{ position:absolute; top:50%; transform:translateY(-50%); right:60px; font-size:14px; font-weight:500; color:#fff; width:50px; line-height:25px; text-align:center; background-color:#dc2f00; border-radius:5px;}
 main .detailArea .tableBox table td .select{ position:relative; display:inline-block; vertical-align:middle; width:120px; border-bottom:3px solid #dc2f00; box-sizing:border-box; margin-right:10px;}
-main .detailArea .tableBox table td .select label{ display:block; width:100%; line-height:35px; font-size:16px; font-weight:500; color:#dc2f00; background-image:url(../img/icon_select.png); background-position:right 5px center; background-repeat:no-repeat; background-size:12px; cursor:pointer}
+main .detailArea .tableBox table td .select label{ display:block; width:100%; line-height:35px; font-size:16px; font-weight:500; color:#dc2f00; background-image:url(../img/icon_select.png); background-position:right 5px center; background-repeat:no-repeat; background-size:12px; cursor:pointer; padding-right: 10px; text-overflow: ellipsis; overflow: hidden;}
 main .detailArea .tableBox table td .select label.on{}
 main .detailArea .tableBox table td .select label.on + ul{ display:block !important}
-main .detailArea .tableBox table td .select ul{ display:none; position:absolute; top:40px; left:-10px; width:100%; padding:10px; border:2px solid #dc2f00; border-radius:5px; background-color:#fff; z-index:2;}
-main .detailArea .tableBox table td .select ul li{ display:block; width:100%; font-size:16px; font-weight:500; color:#676767; padding:5px 10px; box-sizing:border-box; line-height:1.4; text-align:left; cursor:pointer}
+main .detailArea .tableBox table td .select ul{ display:none; position:absolute; top:40px; left:-10px; width:100%; padding:10px; border:2px solid #dc2f00; border-radius:5px; background-color:#fff; z-index:2;width: 120px;}
+main .detailArea .tableBox table td .select ul li{ display:block; width:100%; font-size:16px; font-weight:500; color:#676767; padding:5px 10px; box-sizing:border-box; line-height:1.4; text-align:left; cursor:pointer; text-overflow: ellipsis; overflow: hidden;}
 main .detailArea .tableBox table td .select ul li.selected,
 main .detailArea .tableBox table td .select ul li:hover{ color:#fff; background-color:#dc2f00; border-radius:5px;}
 main .detailArea .tableBox table td .inputBox{ width:100%; height:30px; border:1px solid #999; border-radius:5px; box-sizing:border-box;}
@@ -414,9 +414,9 @@ main .mainArea .sortBox .sortBtn a.download{ line-height:30px;}
 main .mainArea .sortBox .selectBox{ float:none; width:100%; }
 main .mainArea .sortBox .searchBox{ float:none; width:100%; margin-top:10px;}
 main .mainArea .sortBox .select{ width:calc(33% - 24px); margin-right:5px; border-bottom-width:2px;}
-main .mainArea .sortBox .select label{ font-size:12px; line-height:30px; background-size:10px;}
-main .mainArea .sortBox .select ul{ top:35px; padding:5px;}
-main .mainArea .sortBox .select ul li{ font-size:12px; padding:5px;}
+main .mainArea .sortBox .select label{ font-size:12px; line-height:30px; background-size:10px; padding-right: 5px; text-overflow: ellipsis; overflow: hidden;}
+main .mainArea .sortBox .select ul{ top:35px; padding:5px; width: 120px;}
+main .mainArea .sortBox .select ul li{ font-size:12px; padding:5px; text-overflow: ellipsis; overflow: hidden; }
 main .mainArea .sortBox .searchBox .select{ width:70px;}
 main .mainArea .sortBox .searchBox .btn{ width:80px;}
 main .mainArea .sortBox .inputBox{ width:calc(100% - 180px); height:30px; border-width:1px; border-radius:5px; padding-right:20px; margin:0 5px 0 20px;}
@@ -474,7 +474,7 @@ main .detailArea .tableBox table td .tip{ right:50px; font-size:12px; width:40px
 main .detailArea .tableBox table td .select{ width:calc(33% - 4px); margin-right:4px; border-bottom-width:2px;}
 main .detailArea .tableBox table td .select:last-child{ margin-right:0}
 main .detailArea .tableBox table td .select label{ font-size:12px; line-height:30px; background-size:10px;}
-main .detailArea .tableBox table td .select ul{ top:35px; padding:5px;}
+main .detailArea .tableBox table td .select ul{ top:35px; padding:5px; width: 120px;}
 main .detailArea .tableBox table td .select ul li{ font-size:12px; padding:5px;}
 main .detailArea .tableBox table td .per{ font-size:12px; margin-left:5px;}
 main .detailArea .tableBox table td .inputBox input{ font-size:12px;}
