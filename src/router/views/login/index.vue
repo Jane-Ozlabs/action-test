@@ -2,26 +2,28 @@
   <Layout>
     <div class="login">
     	<div class="logo"><img src="@/assets/images/logo.png"></div>
-        <div class="formBox">
-            <div class="inputBox">
-                <img src="@/assets/images/icon_username.png" class="icon">
-                <input type="text" id="username" name="username" value="" placeholder="Username" v-model="form.username">
-                <img src="@/assets/images/icon_check_red.png" class="checked">
-            </div>
-            <div class="inputBox">
-                <img src="@/assets/images/icon_password.png" class="icon">
-                <input type="password" id="password" name="password" value="" placeholder="Password" v-model="form.password">
-                <img src="@/assets/images/icon_check_red.png" class="checked">
-            </div>
-            <div class="warningText">{{message}}</div>
-        </div>
-        <div class="checkBox">
-            <input type="checkbox" id="saveUsername" v-model="rememberMe"><label for="saveUsername">Save username</label>
-            <router-link tag="a" class="forgotBtn" to="/forgot">Forgot your login details?</router-link>
-        </div>
-        <div class="btnBox">
-            <a href="javascript:;;" @click="handleLogin">LOGIN</a>
-        </div>
+        <form v-on:submit.prevent="handleLogin">
+          <div class="formBox">
+              <div class="inputBox">
+                  <img src="@/assets/images/icon_username.png" class="icon">
+                  <input type="text" id="username" name="username" value="" placeholder="Username" v-model="form.username">
+                  <img src="@/assets/images/icon_check_red.png" class="checked">
+              </div>
+              <div class="inputBox">
+                  <img src="@/assets/images/icon_password.png" class="icon">
+                  <input type="password" id="password" name="password" value="" placeholder="Password" v-model="form.password" v-on:keyup.enter="handleLogin">
+                  <img src="@/assets/images/icon_check_red.png" class="checked">
+              </div>
+              <div class="warningText">{{message}}</div>
+          </div>
+          <div class="checkBox">
+              <input type="checkbox" id="saveUsername" v-model="rememberMe"><label for="saveUsername">Save username</label>
+              <router-link tag="a" class="forgotBtn" to="/forgot">Forgot your login details?</router-link>
+          </div>
+          <div class="btnBox">
+              <a href="javascript:;;" @click="handleLogin">LOGIN</a>
+          </div>
+        </form>
     </div>
   </Layout>
 </template>
