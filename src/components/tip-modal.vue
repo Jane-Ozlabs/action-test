@@ -24,7 +24,7 @@
         </ul>
         <div class="check">
           <input type="checkbox" id="check_tip" v-model="checkNotShowTipInChat">
-          <label for="check_tip">Don't open tip-popup</label>
+          <label for="check_tip">Don’t show tip in chat</label>
         </div>
         <div class="btnBox">
             <a href="javascript:;" @click="send">SEND</a>
