@@ -8,28 +8,36 @@
             <tr>
                 <th>Group Name</th>
                 <td>
-                    <div class="inputBox"><input type="text" id="" name="" value="Group Name" v-model="form.name"></div>
-                  </td>
+                  <div class="inputBox">
+                    <input type="text" id="" name="" value="Group Name" v-model="form.name">
+                  </div>
+                </td>
               </tr>
               <tr>
                 <th>Level 1 (%)</th>
                 <td>
-                    <div class="inputBox small"><input type="text" id="" name="" value="10" v-model="form.rate1" ></div>
-                      <span class="per">%</span>
-                  </td>
+                  <div class="inputBox small">
+                    <input type="number" id="" name="" value="10" v-model="form.rate1" >
+                  </div>
+                  <span class="per">%</span>
+                </td>
               </tr>
               <tr>
                 <th>Level 2 (%)</th>
                 <td>
-                    <div class="inputBox small"><input type="text" id="" name="" value="10" v-model="form.rate2" ></div>
-                      <span class="per">%</span>
-                  </td>
+                  <div class="inputBox small">
+                    <input type="number" id="" name="" value="10" v-model="form.rate2" >
+                  </div>
+                  <span class="per">%</span>
+                </td>
               </tr>
               <tr>
                 <th>Level 3 (%)</th>
                 <td>
-                    <div class="inputBox small"><input type="text" id="" name="" value="10" v-model="form.rate3" ></div>
-                      <span class="per">%</span>
+                    <div class="inputBox small">
+                      <input type="number" id="" name="" value="10" v-model="form.rate3" >
+                    </div>
+                    <span class="per">%</span>
                   </td>
               </tr>                    
           </table>
@@ -62,7 +70,7 @@ export default {
   },
   data() {
     return {
-      form: { id: null, name: "", rate1: 0, rate2: 0,  rate3: 0 }
+      form: { id: null, name: "", rate1: 0, rate2: 0,  rate3: 0 },
     };
   },
   methods: {

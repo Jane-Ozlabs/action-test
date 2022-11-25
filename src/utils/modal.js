@@ -1,6 +1,14 @@
+let lastName = null;
 
 export function showModal({ self, key, data }) {
+  if(lastName){
+    self.$store.commit("NOMODAL", lastName);
+  }
+
+  lastName = key
+
   self.$store.commit("MODAL", { key, data: { isVisible: true, ...(data||{}) }, });
+
 }
 
 export function setModalResult({ self, key, data }) {
