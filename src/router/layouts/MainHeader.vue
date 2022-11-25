@@ -1,6 +1,6 @@
 <template>
   <header>
-    <img src="img/logo.png" class="logo" />
+    <img src="img/logo.png" class="logo" @click="goPage('/')" />
     <div class="depth">
       <span v-if="breadcrumb[0]">{{ breadcrumb[0].text }}</span>
       <span v-if="breadcrumb[1]">{{ breadcrumb[1].text }}</span>
@@ -24,6 +24,7 @@ import { logout } from '@/services/auth';
 import { mapState } from 'vuex';
 import { GetAuth } from '@/store';
 import Swal from 'sweetalert2';
+import commonMixin from '@/mixins/common.js';
 
 export default {
   props: {
@@ -46,6 +47,7 @@ export default {
       },
     }),
   },
+  mixins: [commonMixin],
   methods: {
     logout() {
       Swal.fire({

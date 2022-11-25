@@ -77,7 +77,7 @@ footer .footer_info .logo_gc img{ width:145px;}
 #container .change .formBox .inputBox{ margin-top:5px;}
 
 header{ position:relative; width:100%; padding:25px 30px; box-sizing:border-box;}
-header .logo{ display:inline-block; vertical-align:middle; width:290px; margin-right:50px;}
+header .logo{ display:inline-block; vertical-align:middle; width:290px; margin-right:50px; cursor:pointer;}
 header .depth{ display:inline-block; vertical-align:middle; background-color:#f2f2f2; border-radius:10px; padding:0 20px; box-sizing:border-box; font-size:0}
 header .depth span{ position:relative; display:inline-block; vertical-align:middle; line-height:45px; font-size:14px; font-weight:600; color:#6b6b6b; padding-right:35px;}
 header .depth span:last-child{ padding-right:0;}
