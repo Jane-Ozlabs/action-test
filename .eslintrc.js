@@ -28,5 +28,7 @@ module.exports = {
         arrowParens: 'avoid',
       },
     ],
+    'vue/multi-word-component-names': 'warn',
+    'vue/no-unused-components': 'warn',
   },
 };
