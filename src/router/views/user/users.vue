@@ -109,6 +109,9 @@ export default {
       this.page = 1;
       this.total = 0;
       await this.load();
+      this.userFilterType == "all" && (this.filters.usertext = '');
+      this.userFilterType == "username" && (this.filters.username = '');
+      this.userFilterType == "email" && (this.filters.email = '');
     },    
     async download() {
       this.updateFilters();
