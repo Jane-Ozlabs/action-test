@@ -83,7 +83,6 @@ header .depth span{ position:relative; display:inline-block; vertical-align:midd
 header .depth span:last-child{ padding-right:0;}
 header .depth span:before{ content:""; position:absolute; top:50%; transform:translateY(-50%); right:15px; width:8px; height:14px; background-image:url(../img/icon_depthMark.png); background-position:center; background-repeat:no-repeat; background-size:contain;}
 header .depth span:last-child:before{ display:none;}
-header .profile-box{ background-color: blue;}
 header .profile{ position:absolute; top:50%; transform:translateY(-50%); right:40px; padding-left:10px; padding-right:10px; box-sizing:border-box; background-color:#f2f2f2; border-radius:10px; cursor: pointer;}
 header .profile img{ display:inline-block; vertical-align:middle;}
 header .profile .name{ display:inline-block; vertical-align:middle; line-height:45px; font-size:14px; font-weight:600; color:#6b6b6b; margin-left:8px;}
