@@ -22,6 +22,10 @@
                 </div>
             </li>
         </ul>
+        <div class="check">
+          <input type="checkbox" id="check_tip" v-model="checkNotShowTipInChat">
+          <label for="check_tip">Don't open tip-popup</label>
+        </div>
         <div class="btnBox">
             <a href="javascript:;" @click="send">SEND</a>
         </div>
@@ -39,6 +43,7 @@ export default {
   created() {},
   data() {
     return {
+      checkNotShowTipInChat: false,
       MODAL_KEY,
       filters: {},
       userName: "",
@@ -80,8 +85,9 @@ export default {
         this.number = 0;
         return
       }
+
       await save(this, `/partners/views/users/tips`, null, { userId: this.userId, amount: this.number });
-      await Swal.fire({ text: "Sucess!",  showCancelButton: false, confirmButtonColor: "#34c38f" });
+      if(this.checkNotShowTipInChat == false)  await Swal.fire({ text: "Sucess!",  showCancelButton: false, confirmButtonColor: "#34c38f" });
       this.load()
       this.number = 0;
     }
