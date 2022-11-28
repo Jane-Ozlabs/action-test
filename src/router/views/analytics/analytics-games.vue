@@ -46,18 +46,20 @@ export default {
   methods: {
     async load() {
       this.updateFilters();
+      if(this.filters.dateFrom.split('-').join('') > this.filters.dateTo.split('-').join('')){
+        alert('Please re-enter the date');
+      }else {
+        this.rows = [];
+        var view = await loadPagedView(this, "/partners/views/analytics/games", {});
 
-      this.rows = [];
-      var view = await loadPagedView(this, "/partners/views/analytics/games", {});
-      console.log("loadPagedView", UV(view));
+        this.casino = view.casino;
+        this.sports = view.sports;
+        this.poker = view.poker;
 
-      this.casino = view.casino;
-      this.sports = view.sports;
-      this.poker = view.poker;
+        this.agentLines = view.agentLines;
 
-      this.agentLines = view.agentLines;
-
-      hideRightPanel();
+        hideRightPanel();
+      }
     },
     async updateFilters() {
       if(this.$refs.header) {

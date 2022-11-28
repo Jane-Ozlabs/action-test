@@ -82,14 +82,17 @@ export default {
     async load() {
       this.updateFilters();
 
-      this.rows = [];
-      var res = await loadPagedView(this, "/partners/views/revenue/daily", {});
-      console.log("loadPagedView", UV(res));
+      if(this.filters.dateFrom.split('-').join('') > this.filters.dateTo.split('-').join('')){
+        alert('Please re-enter the date');
+      }else {
+        this.rows = [];
+        var res = await loadPagedView(this, "/partners/views/revenue/daily", {});
 
-      this.agentLines = res.agentLines;
-      this.summary = res.summary;
+        this.agentLines = res.agentLines;
+        this.summary = res.summary;
 
-      hideRightPanel();
+        hideRightPanel();
+      }
     },
     async updateFilters() {
       if(this.$refs.header) {
