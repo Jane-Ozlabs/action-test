@@ -173,7 +173,7 @@ main .mainArea .pageBox a.last{}
 main .mainArea .pageBox a.number{ font-size:16px; color:#414141; padding:0 15px; margin:0; border-right:1px solid #ddd; line-height:1;}
 main .mainArea .pageBox a.number:hover,
 main .mainArea .pageBox a.number.on{ font-weight:600; color:#dc2f00;}
-main .mainArea .bottomBtn{ position:absolute; bottom:-10px; right:70px;}
+main .mainArea .bottomBtn{ display: flex; gap: 15px; position:absolute; bottom:-10px; right:70px;}
 main .mainArea .bottomBtn a{ display:inline-block; width:145px; line-height:40px; font-size:16px; color:#fff; text-align:center; background-color:#dc2f00; border-radius:8px;}
 main .mainSendEmail .sortBox .searchBox{ float:left}
 main .mainSendEmail .sortBox .searchBox .inputBox{ width:380px;}
@@ -517,7 +517,7 @@ main .addGroup .bottomBtn a{ width:70px;}
 .tip_popup .contents .tipInfo li .box .icon{ height:16px; margin-right:10px;}
 .tip_popup .contents .tipInfo li .box span{ font-size:16px;}
 .tip_popup .contents .check{ margin-top:30px;}
-.tip_popup .contents .check input + label{ font-size:14px; padding:5px 0 5px 25px; background-size:16px;}
+.tip_popup .contents .check input + label{ font-size:14px; padding:5px 0 5px 25px; background-size:16px; cursor: pointer;}
 .tip_popup .contents .btnBox a{ width:140px; line-height:35px; font-size:16px;}
 
 .detail_popup{ top:15px; left:15px; transform:none; width:calc(100% - 30px); max-height:calc(100vh - 30px); border-width:2px; padding:20px 15px;}
