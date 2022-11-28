@@ -39,12 +39,10 @@
         <tr>
           <th>Email</th>
           <td>
-            <a href="" class="email">{{ detail.email }}</a>
-            <div class="date" v-if="detail.emailConfirmed">
-              <img src="img/icon_check_green.png" /><span>{{
-                detail.emailConfirmedAt | formatDateTime
-              }}</span>
-            </div>
+            <span class="email">{{ detail.email }}</span>
+            <span class="date" v-if="detail.emailConfirmed">
+              <img src="img/icon_check_green.png" />
+            </span>
           </td>
         </tr>
         <tr>
@@ -62,7 +60,7 @@
           <th>Last sign in</th>
           <td>
             {{ detail.lastLoggedInAt | formatDate
-            }}<span class="time">{{ detail.lastLoggedInAt | formatDate }}</span>
+            }}<span class="time">{{ detail.lastLoggedInAt | formatTime }}</span>
           </td>
         </tr>
         <tr>
