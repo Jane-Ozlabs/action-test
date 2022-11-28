@@ -18,13 +18,14 @@
                 <label>* Amount</label>
                 <div class="box">
                     <img src="img/icon_coin.png" class="icon">
-                    <span><input type="number" v-model="amount"></span>
+                    <span><input type="text" @input="bindNumber" :value="number"></span>
                 </div>
             </li>
         </ul>
-        <!-- <div class="check">
-            <input type="checkbox" id="tipCheck" :v-model="nochat"><label for="tipCheck">Don’t show tip in chat</label>
-        </div> -->
+        <div class="check">
+          <input type="checkbox" id="check_tip" v-model="checkNotShowTipInChat">
+          <label for="check_tip">Don’t show tip in chat</label>
+        </div>
         <div class="btnBox">
             <a href="javascript:;" @click="send">SEND</a>
         </div>
@@ -42,11 +43,12 @@ export default {
   created() {},
   data() {
     return {
+      checkNotShowTipInChat: false,
       MODAL_KEY,
       filters: {},
       userName: "",
       cash: 0,
-      amount: 10,
+      number: 0,
       nochat: true,
     };
   },
@@ -65,6 +67,9 @@ export default {
     styleObject() { return { display: this.modalVisible ? 'block' : 'none' } }
   },
   methods: {
+    bindNumber(event) {
+      this.number = event.target.value
+    },
     async load() {
       console.log("load", UV(this.userId));
       var view = await loadView(this, `/partners/views/users/tips/${this.userId}`, {});
@@ -75,14 +80,25 @@ export default {
       hideModal({ self: this, key: MODAL_KEY });
     },
     async send() {
-      console.log("send", this.userId, this.amount);
-      await save(this, `/partners/views/users/tips`, null, { userId: this.userId, amount: this.amount });
-      await Swal.fire({ text: "Sucess!",  showCancelButton: false, confirmButtonColor: "#34c38f" });
+      if(this.cash < this.number){
+        await Swal.fire({ text: "No Cash",  showCancelButton: false, confirmButtonColor: "#34c38f" });
+        this.number = 0;
+        return
+      }
+
+      await save(this, `/partners/views/users/tips`, null, { userId: this.userId, amount: this.number });
+      if(this.checkNotShowTipInChat == false)  await Swal.fire({ text: "Sucess!",  showCancelButton: false, confirmButtonColor: "#34c38f" });
       this.load()
+      this.number = 0;
     }
   },
   watch: {
-    modalVisible: async function() { if(this.modalVisible) this.load(); }
+    modalVisible: async function() { if(this.modalVisible) this.load(); },
+    number(val) {
+      const reg = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|a-z|.|,|-]/;
+
+      if(reg.exec(val)!==null) this.number = val.replace(/[^0-9]/g,'');
+    }
   }
 };
 import {showModal,hideModal, dispatchPaged } from "@/utils";
