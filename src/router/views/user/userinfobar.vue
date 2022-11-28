@@ -59,8 +59,8 @@
         <tr>
           <th>Last sign in</th>
           <td>
-            {{ detail.lastLoggedInAt | formatDate
-            }}<span class="time">{{ detail.lastLoggedInAt | formatTime }}</span>
+            {{ latestLogin | formatDate
+            }}<span class="time">{{ latestLogin | formatTime }}</span>
           </td>
         </tr>
         <tr>
@@ -194,6 +194,11 @@ export default {
   computed: {
     uid() {
       return this.detail.email;
+    },
+    latestLogin() {
+      const { joinedAt, lastLoggedInAt } = this.detail;
+      if (joinedAt == lastLoggedInAt) return '';
+      return lastLoggedInAt;
     },
   },
   data() {
