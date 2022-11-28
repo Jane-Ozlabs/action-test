@@ -2,7 +2,7 @@
   <Layout :breadcrumb="items">
     <div class="mainTitle"><span>Game Usage</span></div>
 
-    <Header ref="header" :agentLines="agentLines" @input="updateFilters" @action="action"/>
+    <Header ref="header" :agentLines="agentLines" @input="updateFilters" @action="action" :btnData = 'true' />
 
     <div class="summary"><span><b>Group :</b> {{summary.group}}</span> <span><b>Date :</b> {{summary.dateFrom}} ~ {{summary.dateTo}}</span> <span><b>Member :</b> {{summary.numUsers}}</span></div>
     <div class="scrollBox">

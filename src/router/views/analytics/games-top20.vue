@@ -15,7 +15,6 @@
       <td>{{ x.numPlayers }}</td>
     </tr>
   </table>
-  <Pagination v-model="filters.page" :totalRows="filters.total" :perPage="filters.perPage" limit="5" @input="load()"/>
 </div>
 </template>
 <script>
