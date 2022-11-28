@@ -117,7 +117,6 @@ export default {
       password: '',
       password2: '',
       email: '',
-
       agentLines: [],
       agentGroups: [],
       group: '0',
@@ -179,7 +178,6 @@ export default {
         agent2: Number(this.$refs.agentFilter.filters.id2) || 0,
         agent3: Number(this.$refs.agentFilter.filters.id3) || 0,
       };
-      console.log('filters', UV(this.filters));
       var r = await loadView(this, `/partners/views/register`, {});
       console.log('loadView res:', UV(r));
       this.agentGroups = r.agentGroups;
@@ -197,7 +195,7 @@ export default {
         agent3: this.$refs.agentFilter.filters.id3,
         username: this.username,
         password: this.password,
-        password2: this.password,
+        password2: this.password2,
         email: this.email,
         agentGroup: this.group,
       };
@@ -208,7 +206,6 @@ export default {
           confirmButtonColor: '#34c38f',
         });
       }
-      console.log('user', UV(user));
       if (user.agent1 != '+' && user.agent2 != '+' && user.agent3 != '+') {
         return Swal.fire({
           text: 'Please select Grade',
@@ -220,10 +217,7 @@ export default {
       user.agent2 = Number(user.agent2) || 0;
       user.agent3 = Number(user.agent3) || 0;
 
-      console.log(user);
-
       await registerUser(user);
-
       this.$store.commit('MODAL', {
         key: 'account-registration-modal',
         data: {
@@ -245,9 +239,6 @@ export default {
       this.$emit('reload');
       hideRightPanel();
     },
-    group(x) {
-      console.log('watch:group', x);
-    },
   },
   setup() {
     return {
@@ -258,8 +249,9 @@ export default {
 
 import { registerUser } from '@/services/partner';
 import { ValidOrError } from '@/services/validation';
+import { loadView } from '@/services';
 import BSSelect from '@/components/bsselect';
-import { showModal, hideModal, hideRightPanel, dispatchPaged } from '@/utils';
+import { hideRightPanel, UV } from '@/utils';
 import { mapState } from 'vuex';
 import { useVuelidate } from '@vuelidate/core';
 import {
@@ -269,7 +261,6 @@ import {
   minLength,
   maxLength,
   and,
-  or,
   helpers,
 } from '@vuelidate/validators';
 import { mustBePassword, mustBeUsername } from '@/utils/validators';
