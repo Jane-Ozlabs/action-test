@@ -7,7 +7,7 @@
                 <input type="text" id="" name="" placeholder="Search" v-model="filters.subject">
                   <a href="javascript:;" class="searchBtn" @click="search"><img src="img/icon_search.png"></a>
               </div>
-              <a href="javascript:;" class="btn" @click="download">Download</a>
+              <a href="javascript:;" class="btn" @click="search">Search</a>
           </div>
       </div>
       <div class="scrollBox">
@@ -32,6 +32,7 @@
       </div>
       <Pagination v-model="filters.page" :totalRows="filters.total" :perPage="filters.perPage" limit="10" @input="load()"/>
       <div class="bottomBtn">
+        <a href="javascript:;" class="btn" @click="download">Download</a>
         <a href="javascript:;" class="sendBtn" @click="write">Send email</a>
       </div>
 

@@ -9,7 +9,7 @@
             <input type="text" id="" name="" placeholder="Search" v-model="userFilterValue">
               <a href="javascript:;" class="searchBtn" @click="search"><img src="img/icon_search.png"></a>
           </div>
-          <a href="javascript:;" class="btn" @click="download">Download</a>
+          <a href="javascript:;" class="btn" @click="search">Search</a>
       </div>
     </div>
     <div class="summary"><span><b>Group :</b> {{ summary.group }}</span> <span><b>Member :</b> {{ summary.numUsers }}</span></div>
@@ -47,6 +47,7 @@
     <Pagination v-model="filters.page" :totalRows="filters.total" :perPage="filters.perPage" limit="10" @input="load()"/>
 
     <div class="bottomBtn">
+      <a href="javascript:;" class="btn" @click="download">Download</a>
       <a href="javascript:;" class="registBtn" @click="register()">Registration</a>
     </div>
     <template v-slot:right>
