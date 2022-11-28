@@ -55,7 +55,9 @@
             @click="viewDetail(data, $event)"
           >
             <td>{{ data.id }}</td>
-            <td>{{ data.grade }}</td>
+            <td :class="`grade-${data.grade.replace(/ /g, '')}`">
+              {{ data.grade }}
+            </td>
             <td>{{ data.group }}</td>
             <td>{{ data.username }}</td>
             <td>
@@ -75,8 +77,8 @@
               }}<span class="time">{{ data.joinedAt | formatTime }}</span>
             </td>
             <td>
-              {{ data.lastLoggedInAt | formatDate
-              }}<span class="time">{{ data.lastLoggedInAt | formatTime }}</span>
+              {{ latestLogin(data) | formatDate
+              }}<span class="time">{{ latestLogin(data) | formatTime }}</span>
             </td>
           </tr>
         </table>
@@ -251,6 +253,11 @@ export default {
     userFilterChanged(x) {
       console.log('userFilterChanged', x);
     },
+    latestLogin(data) {
+      const { joinedAt, lastLoggedInAt } = data;
+      if (joinedAt == lastLoggedInAt) return '';
+      return lastLoggedInAt;
+    },
   },
   watch: {
     filters: {
@@ -261,7 +268,6 @@ export default {
     },
   },
 };
-import { usersView } from '@/services/partner';
 import {
   showRightPanel,
   hideRightPanel,
