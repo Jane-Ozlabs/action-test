@@ -77,12 +77,11 @@
 <style lang="scss"></style>
 
 <script>
-import simplebar from 'simplebar-vue';
 import Swal from 'sweetalert2';
 import AgentFilter from '@/components/agent-filter';
 
 export default {
-  components: { simplebar, AgentFilter, BSSelect },
+  components: { AgentFilter, BSSelect },
   props: ['onClose'],
   mounted() {
     this.load();
