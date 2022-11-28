@@ -154,7 +154,6 @@ export default {
         { text: 'Username', value: 'username' },
         { text: 'Email', value: 'email' },
       ],
-      agentLines: [],
       registerVisible: false,
       userInfoVisible: false,
     };
@@ -273,6 +272,7 @@ import {
   hideRightPanel,
   agentOptions,
   setMainAreaClass,
+  UV,
 } from '@/utils';
 import Layout from '@/router/layouts/main';
 import PageHeader from '@/components/page-header';
@@ -282,4 +282,5 @@ import appConfig from '@/app.config';
 import AgentFilter from '@/components/agent-filter';
 import Pagination from '@/components/pagination';
 import BSSelect from '@/components/bsselect';
+import { loadPagedView, downloadView } from '@/services';
 </script>
