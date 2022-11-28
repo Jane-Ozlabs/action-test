@@ -87,10 +87,15 @@ export default {
       console.log("loadPagedView", UV(res));
       this.agentLines = res.agentLines;
       hideRightPanel();
+
+      if(this.filterSubject == undefined || this.filterSubject == ''){
+        this.rows2 = this.rows;
+      }
     },
     async search() {
       this.page = 1;
       this.total = 0;
+      this.rows2 = []
       await this.load();
 
       for(let i = 0; i<this.rows.length; i++){
