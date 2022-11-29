@@ -102,7 +102,10 @@ export default {
   data() {
     return {
       title: '일별 매출 현황',
-      items: [],
+      items: [
+        { text: 'Sales Management', href: '/revenue' },
+        { text: 'Sales Daily', href: '/revenue/daily' },
+      ],
       filters: {
         agent1: 0,
         agent2: 0,

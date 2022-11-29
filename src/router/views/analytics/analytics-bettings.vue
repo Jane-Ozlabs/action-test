@@ -64,7 +64,10 @@ export default {
   data() {
     return {
       title: '회원 베팅 현황',
-      items: [],
+      items: [
+        { text: 'Game User Status', href: '/analytics' },
+        { text: 'Betting Status', href: '/analytics/bettings' },
+      ],
       filters: {
         n1: '',
         n2: '',

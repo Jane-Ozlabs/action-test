@@ -104,7 +104,10 @@ export default {
   data() {
     return {
       title: '월별 매출 현황',
-      items: [],
+      items: [
+        { text: 'Sales Management', href: '/revenue' },
+        { text: 'Sales Monthly', href: '/revenue/monthly' },
+      ],
       filters: {
         agent1: 0,
         agent2: 0,

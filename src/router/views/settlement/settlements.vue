@@ -65,7 +65,10 @@ export default {
   data() {
     return {
       title: '정산 관리',
-      items: [],
+      items: [
+        { text: 'Payment Management', href: '/settlement' },
+        { text: 'Payment Management', href: '/settlement/settlements' },
+      ],
       filters: {
         agent1: 0,
         agent2: 0,

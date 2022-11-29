@@ -40,7 +40,10 @@ export default {
   data() {
     return {
       title: '게임 이용 현황',
-      items: [],
+      items: [
+        { text: 'Game User Status', href: '/analytics' },
+        { text: 'Game User Status', href: '/analytics/games' },
+      ],
       agentLines: [],
       filters: {
         page: 1,
