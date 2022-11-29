@@ -43,8 +43,6 @@ export default {
       if(!this.filters.dateTo) this.filters.dateTo = to.format('YYYY-MM-DD');
 
       var agentLines = this.agentLines;
-      console.log(agentLines)
-      console.log(this.filters)
       var filters = this.filters;
       var { a1, a2, a3 } = agentOptions({ agentLines, agent1: filters.id1, agent2: filters.id2, agent3: filters.id3 });
       a1 && a1[0] && (this.filters.id1 = a1[0].id);
