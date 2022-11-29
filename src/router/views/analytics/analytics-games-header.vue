@@ -4,7 +4,7 @@
         <a href="javascript:;" style="background-color:#099b8f" @click="today">Today</a>
         <a href="javascript:;" style="background-color:#0583c5" @click="day3">3 Days</a>
         <a href="javascript:;" style="background-color:#5761e9" @click="week1">1 Week</a>
-        <a v-if="this.ifBtn !== true" href="javascript:;" class="download" @click="$emit('action','download')">Download</a>
+        <a v-if="this.btnData !== true" href="javascript:;" class="download" @click="$emit('action','download')">Download</a>
       </div>
       <div class="selectBox">
         <BSSelect v-model="filters.id1" :options="a1" :readonly="true" />
@@ -19,12 +19,9 @@
 <script>
 export default {
   components: { BSSelect, BSDatePicker },
-  props: {
-    btnData: String,
-  },
+  props: ["btnData","agentLines"],
   data() {
     return {
-      ifBtn: this.btnData,
       filters: { id1: 0, id2: 0, id3: 0, dateFrom: "", dateTo: "", username: "" },
       a1: [], a2: [], a3: [],
     };
@@ -46,6 +43,8 @@ export default {
       if(!this.filters.dateTo) this.filters.dateTo = to.format('YYYY-MM-DD');
 
       var agentLines = this.agentLines;
+      console.log(agentLines)
+      console.log(this.filters)
       var filters = this.filters;
       var { a1, a2, a3 } = agentOptions({ agentLines, agent1: filters.id1, agent2: filters.id2, agent3: filters.id3 });
       a1 && a1[0] && (this.filters.id1 = a1[0].id);
