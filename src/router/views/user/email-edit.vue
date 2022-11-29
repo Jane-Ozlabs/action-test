@@ -101,16 +101,7 @@ export default {
       this.subject = r.subject;
       this.content = r.content;
       this.agentLines = r.agentLines;
-      this.tags = r.targets.split(';').map(x => ({
-        text:
-          agentLineText({
-            agentLines: this.agentLines,
-            agent1: x.split('#')[0],
-            agent2: x.split('#')[1],
-            agent3: x.split('#')[2],
-          }) + ' all members',
-        value: x,
-      }));
+      this.tags = this.tagTarget(r.targets);
       console.log(UV(this.tags));
     },
     async save() {
@@ -166,7 +157,26 @@ export default {
         value: `${this.$refs.agentFilter.filters.id1}#${this.$refs.agentFilter.filters.id2}#${this.$refs.agentFilter.filters.id3}`,
       });
     },
-    targetText(target) {},
+    tagTarget(target) {
+      let targetArr = target.split(';');
+      let tags = targetArr.map(x => {
+        if (!x.includes('#')) {
+          return { text: x, value: x };
+        } else {
+          return {
+            text:
+              agentLineText({
+                agentLines: this.agentLines,
+                agent1: x.split('#')[0],
+                agent2: x.split('#')[1],
+                agent3: x.split('#')[2],
+              }) + ' all members',
+            value: x,
+          };
+        }
+      });
+      return tags;
+    },
     onAgentChange() {
       this.group =
         agentLineText({
