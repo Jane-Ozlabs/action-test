@@ -102,36 +102,25 @@ export default {
       this.content = r.content;
       this.agentLines = r.agentLines;
       this.tags = this.tagTarget(r.targets);
-      console.log(UV(this.tags));
     },
     async save() {
       var em = this.payload('draft');
-
-      console.log('save', UV(em));
-
       var r = await save(this, `/partners/emails/${this.emailId}`, null, em);
-
       await Swal.fire({
         text: 'Sucess!',
         showCancelButton: false,
         confirmButtonColor: '#34c38f',
       });
-
       this.$emit('reload');
     },
     async send() {
       var em = this.payload('send');
-
-      console.log('send', UV(em));
-
       var r = await save(this, `/partners/emails/${this.emailId}`, null, em);
-
       await Swal.fire({
         text: 'Sucess!',
         showCancelButton: false,
         confirmButtonColor: '#34c38f',
       });
-
       this.$emit('reload');
     },
     payload(action) {
@@ -151,7 +140,6 @@ export default {
           agent2: this.$refs.agentFilter.filters.id2,
           agent3: this.$refs.agentFilter.filters.id3,
         }) + ' all members';
-      console.log(UV(text));
       this.tags.push({
         text: text,
         value: `${this.$refs.agentFilter.filters.id1}#${this.$refs.agentFilter.filters.id2}#${this.$refs.agentFilter.filters.id3}`,
