@@ -5,12 +5,16 @@
 </template>
 <script>
 export default {
-  props: { modalKey: '' },
+  props: [{ modalKey: '' }, 'isFromSideNav'],
   methods: {
     xbtnClose() {
-      console.log('xbtnClose');
-      if (this.modalKey) hideModal({ self: this, key: this.modalKey });
-      else hideRightPanel();
+      if (this.modalKey) {
+        hideModal({ self: this, key: this.modalKey });
+      } else if (this.isFromSideNav) {
+        this.$emit('close');
+      } else {
+        hideRightPanel();
+      }
     },
   },
 };

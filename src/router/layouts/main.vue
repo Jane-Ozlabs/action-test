@@ -3,7 +3,7 @@
     <MainHeader :breadcrumb="breadcrumb" v-on:showSideNav="toggleSideNav" />
     <!-- <LoadingOverlay /> -->
     <main>
-      <SideNav :isNavClicked="isNavClicked" />
+      <SideNav :isNavClicked="isNavClicked" v-on:closeSideNav="toggleSideNav" />
       <div
         :class="[`mainArea`, mainAreaClass]"
         :style="[

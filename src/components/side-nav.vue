@@ -1,6 +1,6 @@
 <template>
   <nav :class="{ show: isNavClicked }">
-    <xbtn />
+    <xbtn :isFromSideNav="isFromSideNav" v-on:close="closeNav" />
     <div class="dateBox">
       <p>UTC : <ClockUTC /></p>
       <p>KST : <ClockKST /></p>
@@ -65,6 +65,11 @@
 export default {
   components: { ClockUTC, ClockKST },
   props: ['isNavClicked'],
+  data() {
+    return {
+      isFromSideNav: true,
+    };
+  },
   computed: {
     isHQ() {
       var a = GetAuth();
@@ -120,6 +125,9 @@ export default {
       document.body.setAttribute('data-layout-size', 'boxed');
       document.body.setAttribute('data-sidebar', 'dark');
       document.body.removeAttribute('data-topbar', 'dark');
+    },
+    closeNav() {
+      this.$emit('closeSideNav');
     },
   },
 };
