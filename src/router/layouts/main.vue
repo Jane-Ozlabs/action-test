@@ -1,7 +1,7 @@
 <template>
   <div id="layout-wrapper">
     <MainHeader :breadcrumb="breadcrumb" />
-    <LoadingOverlay />
+    <!-- <LoadingOverlay /> -->
     <main>
       <SideNav />
       <div

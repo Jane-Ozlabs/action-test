@@ -166,6 +166,10 @@ main .mainArea .scrollBox .tableBox table td .refBtn{ position:relative; display
 main .mainArea .scrollBox .tableBox table td .time{ display:block; font-size:12px;}
 main .mainArea .scrollBox .tableBox table td .time2{ font-size:12px; margin-left:10px;}
 main .mainArea .scrollBox .tableBox table tr:hover td{ background-color:#f4f4f4;}
+main .mainArea .scrollBox .tableBox table .grade-Level1{ color : red;}
+main .mainArea .scrollBox .tableBox table .grade-Level2{ color : green;}
+main .mainArea .scrollBox .tableBox table .grade-Level3{ color : blue;}
+main .mainArea .scrollBox .tableBox table .grade-Enduser{ color : black;}
 main .mainArea .pageBox{ text-align:center; margin-top:45px; margin-left:-200px;}
 main .mainArea .pageBox a{ display:inline-block; vertical-align:middle; margin:0 15px;}
 main .mainArea .pageBox a img{ height:16px;}
@@ -202,7 +206,7 @@ main .detailArea .tableBox table td{ position:relative; vertical-align:top; font
 main .detailArea .tableBox table td .name{ display:inline-block; width:calc(100% - 120px); font-size:14px; font-weight:400; color:#414141;}
 main .detailArea .tableBox table td .reset{ position:absolute; top:50%; transform:translateY(-50%); right:0; font-size:14px; font-weight:400; color:#414141; display:inline-block; border-bottom:1px solid #414141;}
 main .detailArea .tableBox table td .email{ font-size:14px; font-weight:400; color:#414141; display:inline-block; border-bottom:1px solid #414141;}
-main .detailArea .tableBox table td .date{ margin-top:5px;}
+main .detailArea .tableBox table td .date{ margin-left:7px; }
 main .detailArea .tableBox table td .date img{ display:inline-block; vertical-align:middle; width:16px; margin-right:5px;}
 main .detailArea .tableBox table td .date span{ display:inline-block; vertical-align:middle; font-size:14px; font-weight:400; color:#414141;}
 main .detailArea .tableBox table td .time{ margin-left:20px;}
