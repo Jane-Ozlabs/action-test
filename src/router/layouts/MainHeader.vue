@@ -13,7 +13,7 @@
         Logout</span
       >
     </div>
-    <a href="javascript:;" class="menuBtn" @click="isClicked">
+    <a href="javascript:;" class="menuBtn" @click="showSideNav">
       <img src="img/icon_menu.png" />
     </a>
   </header>
@@ -71,6 +71,9 @@ export default {
     },
     hideProfile() {
       this.isClicked = false;
+    },
+    showSideNav() {
+      this.$emit('showSideNav');
     },
   },
 };

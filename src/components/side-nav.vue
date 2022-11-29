@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav :class="{ show: isNavClicked }">
     <xbtn />
     <div class="dateBox">
       <p>UTC : <ClockUTC /></p>
@@ -64,6 +64,7 @@
 <script>
 export default {
   components: { ClockUTC, ClockKST },
+  props: ['isNavClicked'],
   computed: {
     isHQ() {
       var a = GetAuth();
