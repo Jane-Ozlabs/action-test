@@ -31,7 +31,7 @@
                 }}<span class="time">{{ item.dateTime | formatTime }}</span>
               </p>
               <p class="item02-2">{{ item.transaction }}</p>
-              <p class="item03-2">{{ item.currency }}</p>
+              <p class="item03-2">{{ item.type }}</p>
               <p class="item04-2">{{ item.amountCC | formatCurrency }}</p>
               <p class="item05-2">{{ item.amount | formatCurrency }}</p>
               <p class="item06-2">{{ item.balance | formatCurrency }}</p>
@@ -91,14 +91,8 @@ export default {
   },
   methods: {
     async load() {
-      this.rows = [];
+      // this.rows = [];
       this.filters.userId = this.userId;
-      console.log(
-        'load',
-        this.userId,
-        UV(this.initialFilters),
-        UV(this.filters),
-      );
       var res = await loadPagedView(this, '/partners/views/users/cashLogs', {});
     },
     reset() {
@@ -111,5 +105,5 @@ export default {
     },
   },
 };
-import { showModal, hideModal, dispatchPaged } from '@/utils';
+import { hideModal } from '@/utils';
 </script>
