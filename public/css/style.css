@@ -303,7 +303,7 @@ main .addGroup .bottomBtn a{ width:125px; line-height:35px; margin:0;}
 .detail_popup .contents .scrollBox .tableBox .thBox li p{ display:block; font-size:14px; font-weight:400; color:#fff; text-align:center; background-color:#a9a9a9; padding:10px;}
 .detail_popup .contents .scrollBox .tableBox .thBox li:first-child p{ border-radius:10px 0 0 10px;}
 .detail_popup .contents .scrollBox .tableBox .thBox li:last-child p{ border-radius:0 10px 10px 0;}
-.detail_popup .contents .scrollBox .tableBox .tdBox{ height:400px; margin-right:-16px; overflow:auto;}
+.detail_popup .contents .scrollBox .tableBox .tdBox{ height:400px; overflow:auto; padding:0px;}
 .detail_popup .contents .scrollBox .tableBox .tdBox li{ display:table; width:100%; border-collapse:collapse;}
 .detail_popup .contents .scrollBox .tableBox .tdBox li:hover{ background-color:#f4f4f4;}
 .detail_popup .contents .scrollBox .tableBox .tdBox li p{ display:table-cell; vertical-align:middle; vertical-align:middle; font-size:14px; color:#414141; text-align:center; padding:10px; border-bottom:1px solid #ddd;}
