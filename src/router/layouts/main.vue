@@ -1,9 +1,9 @@
 <template>
   <div id="layout-wrapper">
-    <MainHeader :breadcrumb="breadcrumb" />
+    <MainHeader :breadcrumb="breadcrumb" v-on:showSideNav="toggleSideNav" />
     <!-- <LoadingOverlay /> -->
     <main>
-      <SideNav />
+      <SideNav :isNavClicked="isNavClicked" v-on:closeSideNav="toggleSideNav" />
       <div
         :class="[`mainArea`, mainAreaClass]"
         :style="[
@@ -67,6 +67,7 @@ export default {
     return {
       isMenuCondensed: false,
       defaultdate: '',
+      isNavClicked: false,
     };
   },
   computed: {
@@ -109,8 +110,12 @@ export default {
     hideRightSidebar() {
       document.body.classList.remove('right-bar-enabled');
     },
-    showMenu() {
-      $('nav').addClass('show');
+    toggleSideNav() {
+      if (this.isNavClicked) {
+        this.isNavClicked = false;
+      } else {
+        this.isNavClicked = true;
+      }
     },
   },
 };
@@ -121,15 +126,6 @@ $(function () {
     if ($(e.target).parents('.select').length < 1) {
       $('.select label').removeClass('on');
     }
-  });
-});
-
-$(function () {
-  $('header .menuBtn').click(function () {
-    $('nav').addClass('show');
-  });
-  $('nav .xBtn').click(function () {
-    $('nav').removeClass('show');
   });
 });
 
