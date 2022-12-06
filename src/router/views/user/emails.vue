@@ -32,7 +32,6 @@
       </div>
       <Pagination v-model="filters.page" :totalRows="filters.total" :perPage="filters.perPage" limit="10" @input="load()"/>
       <div class="bottomBtn">
-        <a href="javascript:;" class="btn" @click="download">Download</a>
         <a href="javascript:;" class="sendBtn" @click="write">Send email</a>
       </div>
 
@@ -104,9 +103,6 @@ export default {
           this.rows2.push(this.rows[i])
         }
       }
-    },    
-    async download() {
-      await downloadView(this, "/partners/views/emails");
     },
     updateFilters() {
     },
@@ -123,9 +119,6 @@ export default {
       this.mode = "edit";
       this.emailId = id;
       showRightPanel();
-    },
-    download() {
-
     },
   }
 };
