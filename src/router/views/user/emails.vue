@@ -19,7 +19,7 @@
                     <th style="width:12%"><p>Progress</p></th>
                     <th style="width:20%"><p>Date</p></th>
                   </tr>
-                  <tr v-for="item of rows2" :key="item.id" @click="review(item, $event)">
+                  <tr v-for="item of rows" :key="item.id" @click="review(item, $event)">
                     <td>{{ item.id }}</td>
                     <td style="text-align:left">{{ item.subject }}</td>
                     <td>{{ item.status }}</td>
@@ -52,7 +52,6 @@ export default {
   data() {
     return {
       title: "이메일 발송",
-      rows2: [],
       filterSubject: '',
       items: [ { text: "Member Management", href: "/user" }, { text: "Send email", href: "/user/emails" }, ],
       filters: { page: 1, perPage: 10, total: 0, subject: "" },
@@ -74,25 +73,18 @@ export default {
   methods: {
     async load() {
       this.filterSubject = this.filters.subject
-      this.filters.subject = "";
 
       this.rows = [];
       var res = await loadPagedView(this, "/partners/views/emails", {});
       hideRightPanel();
       if(this.filterSubject == undefined || this.filterSubject == ''){
-        this.rows2 = this.rows;
+        return;
       }
     },
     async search() {
       this.page = 1;
       this.total = 0;
-      this.rows2 = []
       await this.load();
-      for(let i = 0; i<this.rows.length; i++){
-        if(this.rows[i].subject.includes(this.filterSubject)){
-          this.rows2.push(this.rows[i]);
-        }
-      }
     },
     review(item) {
       this.emailId = item.id;
