@@ -16,7 +16,7 @@
                     <th style="width:8%"><p>NO</p></th>
                     <th style="width:48%"><p style="text-align:left">Subject</p></th>
                     <th style="width:12%"><p>Status</p></th>
-                    <th style="width:12%"><p>Progress</p></th>
+                    <th style="width:12%"><p>Progress (Sent/Total)</p></th>
                     <th style="width:20%"><p>Date</p></th>
                   </tr>
                   <tr v-for="item of rows" :key="item.id" @click="review(item, $event)">
