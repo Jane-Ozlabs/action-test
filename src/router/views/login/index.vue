@@ -68,7 +68,7 @@ export default {
         console.log("loggedIn", this.loggedIn)
         if(!this.loggedIn) return;
         SetSettings({ rememberMe: this.rememberMe, savedUsername: this.rememberMe ? this.form.username : "" });          
-        this.$router.push("/");
+        this.$router.push("/revenue/daily");
       } catch(e) {
         console.error(e);
       }
