@@ -9,11 +9,11 @@ module.exports = {
         allowedHosts: "all",
     },
 
-    // css: {
-    //     extract: {
-    //         ignoreOrder: true
-    //     }
-    // },
+    css: {
+        extract: {
+            ignoreOrder: true
+        }
+    },
 
     configureWebpack: {
         resolve: {
