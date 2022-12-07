@@ -1,6 +1,6 @@
 <template>
   <div :class="['tip_popup']" :style="styleObject" :id="MODAL_KEY">
-      <a href="javascript:;" class="xBtn" @click="reset"><img src="img/icon_close_s.png"></a>
+      <a href="javascript:;" class="xBtn" @click="reset"><img :src="iconURL.close_s"></a>
       <div class="contents">
         <div class="cash">
             <p>TIP</p>
@@ -10,14 +10,14 @@
             <li>
                 <label>* To</label>
                 <div class="box">
-                    <img src="img/icon_username.png" class="icon">
+                    <img :src="iconURL.user" class="icon">
                     <span>{{userName}}</span>
                 </div>
             </li>
             <li>
                 <label>* Amount</label>
                 <div class="box">
-                    <img src="img/icon_coin.png" class="icon">
+                    <img :src="iconURL.coin" class="icon">
                     <span><input type="text" @input="bindNumber" :value="number"></span>
                 </div>
             </li>
@@ -50,6 +50,7 @@ export default {
       cash: 0,
       number: 0,
       nochat: true,
+      iconURL: this.$store.getters.iconURL,
     };
   },
   mounted() {

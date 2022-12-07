@@ -1,6 +1,6 @@
 <template>
   <div :class="['detail_popup']" :style="styleObject" :id="MODAL_KEY">
-    <a href="javascript:;" class="xBtn" @click="reset"><img src="img/icon_close_s.png"></a>
+    <a href="javascript:;" class="xBtn" @click="reset"><img :src="iconURL"></a>
     <div class="popupTitle"><span>Tip</span></div>
     <div class="contents">
       <div class="summary">Period : {{ summary.dateFrom | formatDate }} ~ {{ summary.dateTo | formatDate }} <b>Tip($) : {{ summary.total | formatCurrency }}</b></div>
@@ -51,6 +51,7 @@ export default {
       page: 1,
       total: 0,
       rows: [],
+      iconURL: this.$store.getters.iconURL.close_s
     };
   },
   computed: {

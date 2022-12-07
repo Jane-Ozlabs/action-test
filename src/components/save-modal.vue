@@ -1,6 +1,6 @@
 <template>
   <div :class="['alert_popup']" :style="styleObject" :id="MODAL_KEY">
-      <a href="javascript:;" class="xBtn" @click="reset"><img src="img/icon_close_s.png"></a>
+      <a href="javascript:;" class="xBtn" @click="reset"><img :src="iconURL"></a>
       <div class="contents">
         <div class="text01">Do you want to save now?</div>
         <div class="btnBox">
@@ -20,6 +20,7 @@ export default {
   data() {
     return {
       MODAL_KEY,
+      iconURL: this.$store.getters.iconURL.close_s
     }
   },
   computed: {
