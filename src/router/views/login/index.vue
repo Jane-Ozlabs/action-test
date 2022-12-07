@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="login">
-    	<div class="logo"><img src="@/assets/images/logo.png"></div>
+    	<div class="logo"><img :src="iconURL.logo"></div>
         <form v-on:submit.prevent="handleLogin">
           <div class="formBox">
               <div class="inputBox">
@@ -46,6 +46,7 @@ export default {
       loading: false,
       message: ``,
       rememberMe: false,
+      iconURL: this.$store.getters.iconURL
     }
   },
   computed: {

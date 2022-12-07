@@ -24,12 +24,30 @@ const store = new Vuex.Store({
         modals: {},
         rightPanel: {},
         mainAreaClass: "",
+        iconURL: {
+            logo: process.env.VUE_APP_CDN_URL + "/img/logo.png",
+            logoF: process.env.VUE_APP_CDN_URL + "/img/logo_f.png",
+            logoGC: process.env.VUE_APP_CDN_URL + "/img/logo_gc.png",
+            profile: process.env.VUE_APP_CDN_URL + "/img/profile.png",
+            menu: process.env.VUE_APP_CDN_URL + "/img/icon_menu.png",
+            close_s: process.env.VUE_APP_CDN_URL + "/img/icon_close_s.png",
+            user: process.env.VUE_APP_CDN_URL + "/img/icon_username.png",
+            coin: process.env.VUE_APP_CDN_URL + '/img/icon_coin.png',
+            pgFirst: process.env.VUE_APP_CDN_URL + '/img/icon_pageFirst.png',
+            pgLast: process.env.VUE_APP_CDN_URL + '/img/icon_pageLast.png',
+            pgPrev: process.env.VUE_APP_CDN_URL + '/img/icon_pagePrev.png',
+            pgNext: process.env.VUE_APP_CDN_URL + '/img/icon_pageNext.png',
+            checkRed: process.env.VUE_APP_CDN_URL + '/img/icon_check_red.png',
+            checkGreen: process.env.VUE_APP_CDN_URL + '/img/icon_check_green.png',
+            email: process.env.VUE_APP_CDN_URL + '/img/icon_email.png',
+        }
     },
     getters: {
         settings: (state) => state.settings,
         auth: (state) => state.auth,
         loading: (state) => state.loading,
         modals: (state) => state.modals,
+        iconURL : (state) => state.iconURL
     },
     actions: {},
     mutations: {

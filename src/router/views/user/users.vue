@@ -23,9 +23,6 @@
             placeholder="Search"
             v-model="userFilterValue"
           />
-          <a href="javascript:;" class="searchBtn" @click="search"
-            ><img src="img/icon_search.png"
-          /></a>
         </div>
         <a href="javascript:;" class="btn" @click="search">Search</a>
       </div>

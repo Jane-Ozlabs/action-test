@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="login forgot">
-    	<div class="logo"><img src="img/logo.png"></div>
+    	<div class="logo"><img :src="iconURL.logo"></div>
         <div v-if="!complete">
           <div class="formBox">
             <div class="formText">
@@ -12,9 +12,9 @@
               </div>
               <div class="inputBox">
                 <label>Email</label>
-                  <img src="img/icon_email.png" class="icon">
+                  <img :src="iconURL.email" class="icon">
                   <input type="text" id="" name="" placeholder="email@verification.com" v-model="email">
-                  <img src="img/icon_check_red.png" class="checked">
+                  <img :src="iconURL.checkRed" class="checked">
               </div>
               <div class="warningText">
                   Please enter a valid account details.
@@ -56,6 +56,7 @@ export default {
       message: ``,
       remember: false,
       complete: false,
+      iconURL: this.$store.getters.iconURL
     }
   },
   validations: {

@@ -17,7 +17,6 @@
         <div class="searchBox">
             <div class="inputBox">
               <input type="text" id="" name="" placeholder="Username" v-model="filters.username">
-                <a href="javascript:;" class="searchBtn" @click="$emit('action', 'search')"><img src="img/icon_search.png"></a>
             </div>
             <a href="javascript:;" class="btn" @click="$emit('action', 'search')">Search</a>
         </div>

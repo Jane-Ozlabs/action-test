@@ -1,12 +1,12 @@
 <template>
     <div class="pageBox">
-      <a href="javascript:;" class="first" @click="first"><img src="img/icon_pageFirst.png"></a>
-      <a href="javascript:;" class="prev" @click="prev"><img src="img/icon_pagePrev.png"></a>
+      <a href="javascript:;" class="first" @click="first"><img :src="iconURL.pgFirst"></a>
+      <a href="javascript:;" class="prev" @click="prev"><img :src="iconURL.pgPrev"></a>
 
       <a href="javascript:;" :class="['number', content == x ? 'on': '']" :style="x == pages[pages.length-1] ? { border: 'none' } : {}" @click="page(x)" v-for="x of pages" :key="x">{{x}}</a>
 
-      <a href="javascript:;" class="next" @click="next"><img src="img/icon_pageNext.png"></a>
-      <a href="javascript:;" class="last" @click="last"><img src="img/icon_pageLast.png"></a>
+      <a href="javascript:;" class="next" @click="next"><img :src="iconURL.pgNext"></a>
+      <a href="javascript:;" class="last" @click="last"><img :src="iconURL.pgLast"></a>
     </div>
 </template>
 <script>
@@ -19,6 +19,7 @@ export default {
       start: 1,
       pageTotal: 0,
       pages: [],
+      iconURL: this.$store.getters.iconURL
     };
   },
   created() {

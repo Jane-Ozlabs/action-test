@@ -1,7 +1,7 @@
 <template>
   <div :class="['detail_popup']" :style="styleObject" :id="MODAL_KEY">
     <a href="javascript:;" class="xBtn" @click="reset"
-      ><img src="img/icon_close_s.png"
+      ><img :src="iconURL"
     /></a>
     <div class="popupTitle"><span>Deposit/Withdrawal</span></div>
     <div class="contents">
@@ -67,6 +67,7 @@ export default {
       },
       summary: { dateFrom: '', dateTo: '', total: 0 },
       rows: [],
+      iconURL: this.$store.getters.iconURL.close_s
     };
   },
   mounted() {
