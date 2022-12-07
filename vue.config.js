@@ -1,4 +1,5 @@
 const path = require('path');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 module.exports = {
     publicPath: "/",
@@ -20,6 +21,15 @@ module.exports = {
                 '@': path.join(__dirname, 'src/')
             }
         },
+        plugins: [
+            new ScriptExtHtmlWebpackPlugin({
+                custom: {
+                    test:/\.js$/,
+                    attribute: 'nonce',
+                    value: process.env.VUE_APP_SCRIPT_NONCE
+                }           
+            })
+        ],
         // 250kb 이상일 경우 webpack은 경고를 합니다. 경고를 관리하는 변수가 hint
         performance: {
             hints: false,
@@ -33,7 +43,7 @@ module.exports = {
                 minSize: 10000,
                 maxSize: 250000,
             }
-        }
+        },
     },
 
     transpileDependencies: [
