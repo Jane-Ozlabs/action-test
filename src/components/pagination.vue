@@ -42,9 +42,9 @@ export default {
             if (this.windowWidth < 1024) limit = 5;
 
             this.pageTotal = Math.ceil(this.totalRows / this.perPage) || 1;
-            var p = [];
-            for (var i = 0; i < limit; i++) {
-                var n = this.start + i;
+            let p = [];
+            for (let i = 0; i < limit; i++) {
+                var n = this.start + i; // 11 21 
                 if (n > this.pageTotal) break;
                 p.push(n);
             }
@@ -71,14 +71,21 @@ export default {
             this.content = this.pageTotal;
             this.$emit("input", String(this.content));
         },
-        prev(x) {
+        prev() {
             this.content = this.content - 1;
-            this.update();
+
+             if(this.content % 10 == 0 && this.content > 1 ){
+                this.start = this.content - 9;
+                this.update();
+            }         
             this.$emit("input", String(this.content));
         },
-        next(x) {
+        next() {
             this.content = this.content + 1;
-            this.update();
+            if(this.content % 10 == 1){
+                this.start = this.content;
+                this.update();
+            }          
             this.$emit("input", String(this.content));
         },
         async handleResize() {

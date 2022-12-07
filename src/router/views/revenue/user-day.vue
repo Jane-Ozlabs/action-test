@@ -8,13 +8,13 @@
             <table class="tb02">
                 <tr>
                     <th><p>Date</p></th>
-                    <th style="width: 35%"><p style="text-align: left">Game</p></th>
+                    <th><p>Game</p></th>
                     <th><p>Bet</p></th>
                     <th><p>Win/Lose</p></th>
                 </tr>
                 <tr class="total">
                     <th>&nbsp;</th>
-                    <th style="text-align: left">Total</th>
+                    <th>Total</th>
                     <th>{{ summary.bet | formatCurrency }}</th>
                     <th>
                         <font color="#dd3100">{{ summary.winLose | formatCurrency }}</font>
@@ -22,19 +22,20 @@
                 </tr>
                 <tr v-for="x of rows" :key="x.id">
                     <td>{{ x.dateTime | formatDateTime }}</td>
-                    <td style="text-align: left">{{ x.game }}</td>
+                    <td>{{ x.game }}</td>
                     <td>{{ x.bet | formatCurrency }}</td>
                     <td>
                         <font :color="colorWinLose(x)">{{ x.winLose | formatCurrency }}</font>
                     </td>
                 </tr>
             </table>
+              <Pagination v-model="filters.page" :totalRows="filters.total" :perPage="filters.perPage" limit="10" @input="load" />
         </div>
+          
     </div>
 </template>
 <script>
-const moment = require("moment");
-
+import moment from "moment";
 import Layout from "@/router/layouts/main";
 import PageHeader from "@/components/page-header";
 import Pagination from "@/components/pagination";
@@ -63,18 +64,22 @@ export default {
         this.load();
     },
     methods: {
-        async load() {
-            this.updateFilters();
-
+        async load(page) {
+            this.updateFilters(page);
             this.rows = [];
             var res = await loadPagedView(this, `/partners/views/revenue/daily/${this.userId}`, {});
             console.log("loadPagedView", UV(res));
 
             this.summary = res.summary;
         },
-        updateFilters() {
-            this.filters.dateFrom = moment(this.date).startOf("day").format("YYYY-MM-DD");
-            this.filters.dateTo = moment(this.date).startOf("day").add(1, "day").format("YYYY-MM-DD");
+        updateFilters(page) {
+          this.filters = {
+            dateFrom: moment(this.date).startOf("day").format("YYYY-MM-DD"),
+            dateTo: moment(this.date).startOf("day").add(1, "day").format("YYYY-MM-DD"),
+            page,
+            total: 0,
+            perPage:10
+          }
         },
         colorWinLose(x) {
             return x.winLose < 0 ? "#006cff" : "#dd3100";
