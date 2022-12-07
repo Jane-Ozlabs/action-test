@@ -41,7 +41,7 @@
           <td>
             <span class="email">{{ detail.email }}</span>
             <span class="date" v-if="detail.emailConfirmed">
-              <img src="img/icon_check_green.png" />
+              <img :src="iconURL.checkGreen" />
             </span>
           </td>
         </tr>
@@ -204,6 +204,7 @@ export default {
   data() {
     return {
       detail: {},
+      iconURL: this.$store.getters.iconURL
     };
   },
   methods: {

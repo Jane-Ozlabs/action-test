@@ -1,20 +1,20 @@
 <template>
   <header>
-    <img src="img/logo.png" class="logo" @click="goPage('/')" />
+    <img :src="iconURL.logo" class="logo" @click="goPage('/')" />
     <div class="depth">
       <span v-if="breadcrumb[0]">{{ breadcrumb[0].text }}</span>
       <span v-if="breadcrumb[1]">{{ breadcrumb[1].text }}</span>
       <span v-if="breadcrumb[2]">{{ breadcrumb[2].text }}</span>
     </div>
     <div class="profile" @click="showProfile" v-click-outside="hideProfile">
-      <img src="img/profile.png" />
+      <img :src="iconURL.profile"  />
       <span class="name">{{ me && me.username }}</span>
       <span class="logout-btn" :class="{ show: isClicked }" @click="logout">
         Logout</span
       >
     </div>
     <a href="javascript:;" class="menuBtn" @click="showSideNav">
-      <img src="img/icon_menu.png" />
+      <img :src="iconURL.menu" />
     </a>
   </header>
 </template>
@@ -37,7 +37,8 @@ export default {
   data() {
     return {
       isClicked: false,
-    };
+      iconURL: this.$store.getters.iconURL
+    }
   },
   computed: {
     ...mapState({

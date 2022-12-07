@@ -1,11 +1,16 @@
 <template>
   <a href="javascript:;" class="xBtn" @click="xbtnClose"
-    ><img src="img/icon_close_s.png"
+    ><img :src="iconURL"
   /></a>
 </template>
 <script>
 export default {
   props: [{ modalKey: '' }, 'isFromSideNav'],
+  data(){
+    return {
+      iconURL: this.$store.getters.iconURL.close_s
+    }
+  },
   methods: {
     xbtnClose() {
       if (this.modalKey) {

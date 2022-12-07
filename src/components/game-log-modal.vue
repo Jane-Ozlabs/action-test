@@ -1,6 +1,6 @@
 <template>
   <div :class="['detail_popup']" :style="styleObject" :id="MODAL_KEY">
-    <a href="javascript:;" class="xBtn" @click="reset"><img src="img/icon_close_s.png"></a>
+    <a href="javascript:;" class="xBtn" @click="reset"><img :src="iconURL"></a>
     <div class="popupTitle"><span>Win/Lose</span></div>
     <div class="contents">
         <div class="summary">Period : {{ summary.dateFrom | formatDate }} ~ {{ summary.dateTo | formatDate }}
@@ -51,6 +51,7 @@ export default {
       filters: { userId: 0,dateFrom: "", dateTo: "", page: 1, perPage: 20, total: 0 },
       summary: { dateFrom: "", dateTo: "", total: 0 },
       rows: [],
+      iconURL: this.$store.getters.iconURL.close_s
     };
   },
   mounted() {

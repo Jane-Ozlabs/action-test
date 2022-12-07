@@ -1,6 +1,6 @@
 <template>
   <div :class="['alert_popup']" :style="styleObject" id="error-modal">
-      <a href="javascript:;" class="xBtn" @click="resetError"><img src="img/icon_close_s.png"></a>
+      <a href="javascript:;" class="xBtn" @click="resetError"><img :src="iconURL"></a>
       <div class="contents">
           <div class="text01">{{errorTitle}}</div>
           <div class="text02">{{errorContent}}</div>
@@ -16,6 +16,11 @@ import { mapState } from 'vuex';
 
 export default {
   components: {},
+  data(){
+    return {
+      iconURL: this.$store.getters.iconURL.close_s
+    }
+  },
   props: [ "stay" ],
   created() {
   },

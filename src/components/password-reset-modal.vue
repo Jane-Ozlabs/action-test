@@ -1,6 +1,6 @@
 <template>
   <div :class="['alert_popup']" :style="styleObject" :id="MODAL_KEY">
-      <a href="javascript:;" class="xBtn" @click="reset"><img src="img/icon_close_s.png"></a>
+      <a href="javascript:;" class="xBtn" @click="reset"><img :src="iconURL"></a>
       <div class="contents">
           <div class="text01">{{modalTitle}}</div>
           <div class="text02">{{modalContent}}</div>
@@ -22,7 +22,8 @@ export default {
     return {
       MODAL_KEY,
       modalTitle: "Are you sure you want to reset your password?",
-      modalContent: "A reset link will be sent to the email you entered during registration."
+      modalContent: "A reset link will be sent to the email you entered during registration.",
+      iconURL: this.$store.getters.iconURL.close_s
     }
   },
   computed: {

@@ -24,7 +24,7 @@
                 </li>
             </ul>
             <div class="footer_info">
-                <div class="logo"><img src="img/logo_f.png"></div>
+                <div class="logo"><img :src="iconURL.logoF"></div>
                 <div class="info_text">
                     Bettingspoon is owned and operated by Bellona N.V., a company registered <br class="pc_only">
                     and established under Law of Curacao, with registration number 120860 and <br class="pc_only">
@@ -37,7 +37,7 @@
                     as a payment agent. All payments related to Paysafe will be processed by <br class="pc_only">
                     Bellona N.V. Licence No 8048/JAZ
                 </div>
-                <div class="logo_gc"><img src="img/logo_gc.png"></div>
+                <div class="logo_gc"><img :src="iconURL.logoGC"></div>
             </div>
         </div>
     </footer>
@@ -59,7 +59,8 @@ export default {
       VUE_APP_LINK_RESPONSIBLE: process.env.VUE_APP_LINK_RESPONSIBLE,
       VUE_APP_LINK_CASINO: process.env.VUE_APP_LINK_CASINO,
       VUE_APP_LINK_SPORTS: process.env.VUE_APP_LINK_SPORTS,
-    };
+      iconURL: this.$store.getters.iconURL
+    }
   },
   computed: {
     ...mapState({
