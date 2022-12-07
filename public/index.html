@@ -23,10 +23,10 @@
     
     <title>BettingSpoon</title>
       <link rel="shortcut icon" href="img/favicon.ico">
-      <link rel="stylesheet" type="text/css" href="css/style.css"> 
-      <script src="js/jquery.js"></script>
-      <link type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/base/jquery-ui.css" rel="stylesheet" />
-      <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="stylesheet" type="text/css" href="<%= process.env.VUE_APP_CDN_URL %>/jquery-ui.css"/>
+      <script nonce="<%= process.env.VUE_APP_SCRIPT_NONCE %>" src="<%= process.env.VUE_APP_CDN_URL %>/jquery.js"></script>
+      <script nonce="<%= process.env.VUE_APP_SCRIPT_NONCE %>" src="<%= process.env.VUE_APP_CDN_URL %>/jquery-ui.min.js"></script>
   </head>
   <body>
     <noscript>

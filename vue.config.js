@@ -1,4 +1,5 @@
 const path = require('path');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 module.exports = {
     publicPath: "/",
@@ -13,7 +14,16 @@ module.exports = {
             alias: {
                 '@': path.join(__dirname, 'src/')
             }
-        }
+        },
+        plugins: [
+            new ScriptExtHtmlWebpackPlugin({
+                custom: {
+                    test:/\.js$/,
+                    attribute: 'nonce',
+                    value: process.env.VUE_APP_SCRIPT_NONCE
+                }           
+            })
+        ]
     },
 
     transpileDependencies: [
