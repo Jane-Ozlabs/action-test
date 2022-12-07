@@ -36,12 +36,7 @@
 </template>
 <script>
 import moment from "moment";
-import Layout from "@/router/layouts/main";
-import PageHeader from "@/components/page-header";
 import Pagination from "@/components/pagination";
-import AgentFilter from "@/components/agent-filter";
-import DayFilter from "@/components/day-filter";
-import UserFilter from "@/components/user-filter";
 import appConfig from "@/app.config";
 
 export default {
@@ -49,7 +44,7 @@ export default {
         title: "일별 매출 현황",
         meta: [{ name: "description", content: appConfig.description }],
     },
-    components: { Layout, PageHeader, AgentFilter, DayFilter, UserFilter, Pagination },
+    components: { Pagination },
     props: { userId: {}, date: {} },
     data() {
         return {
@@ -59,7 +54,6 @@ export default {
             summary: { date: "", username: "", bet: 0, winLose: 0 },
         };
     },
-
     mounted() {
         this.load();
     },
@@ -68,8 +62,6 @@ export default {
             this.updateFilters(page);
             this.rows = [];
             var res = await loadPagedView(this, `/partners/views/revenue/daily/${this.userId}`, {});
-            console.log("loadPagedView", UV(res));
-
             this.summary = res.summary;
         },
         updateFilters(page) {
@@ -78,7 +70,7 @@ export default {
             dateTo: moment(this.date).startOf("day").add(1, "day").format("YYYY-MM-DD"),
             page,
             total: 0,
-            perPage:10
+            perPage: 10
           }
         },
         colorWinLose(x) {

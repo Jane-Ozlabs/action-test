@@ -44,7 +44,7 @@ export default {
             this.pageTotal = Math.ceil(this.totalRows / this.perPage) || 1;
             let p = [];
             for (let i = 0; i < limit; i++) {
-                var n = this.start + i; // 11 21 
+                var n = this.start + i;
                 if (n > this.pageTotal) break;
                 p.push(n);
             }
