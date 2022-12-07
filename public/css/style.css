@@ -193,7 +193,7 @@ main .mainGame .scrollBox:after{ content:""; display:block; clear:both}
 main .mainGame .scrollBox .tableBox{ float:left; width:32%; min-width:0; margin-right:2%;}
 main .mainGame .scrollBox .tableBox:last-child{ margin-right:0}
 
-main .detailArea{ position:relative; display:inline-block; vertical-align:top; width:450px; min-height:760px; border:3px solid #dc2f00; box-sizing:border-box; border-radius:10px; padding:20px;}
+main .detailArea{ position:relative; display:inline-block; width:450px; min-height:780px; border:3px solid #dc2f00; box-sizing:border-box; border-radius:10px; padding:20px}
 main .detailArea .xBtn{ display:none;}
 main .detailArea .detailTitle{ position:relative;}
 main .detailArea .detailTitle:before{ content:""; position:absolute; left:0; bottom:0; width:100%; height:4px; background-color:#e4e4e4;}
@@ -225,12 +225,19 @@ main .detailArea .tableBox table td .inputBox{ width:100%; height:30px; border:1
 main .detailArea .tableBox table td .inputBox.small{ display:inline-block; vertical-align:middle; width:30%}
 main .detailArea .tableBox table td .inputBox input{ display:block; width:100%; height:100%; font-size:14px; color:#414141; padding:0 10px; box-sizing:border-box; border:none; background-color:transparent; outline:none;}
 main .detailArea .tableBox table td .per{ display:inline-block; vertical-align:middle; font-size:16px; color:#414141; margin-left:10px;}
+
 main .detailArea .tableBox table.tb02 th{ border-bottom:none;}
-main .detailArea .tableBox table.tb02 th p{ display:block; font-size:14px; font-weight:400; color:#fff; text-align:center; background-color:#a9a9a9; padding:12px 5px;}
+main .detailArea .tableBox table.tb02 th p{ display:block; font-size:14px; font-weight:400; color:#fff; text-align:center; background-color:#a9a9a9; padding:9px 5px; margin: 0px}
 main .detailArea .tableBox table.tb02 th:first-child p{ border-radius:10px 0 0 10px;}
 main .detailArea .tableBox table.tb02 th:last-child p{ border-radius:0 10px 10px 0;}
 main .detailArea .tableBox table.tb02 td{ vertical-align:middle; font-size:14px; color:#414141; text-align:center; border-bottom:1px solid #ddd; padding:12px 5px}
 main .detailArea .tableBox table.tb02 .total th{ font-weight:600; color:#414141; text-align:center; padding:10px 5px; border-bottom:2px solid #ddd;}
+main .detailArea .pageBox{ width: 100%; text-align:center; margin-top:20px;}
+main .detailArea .pageBox a{ display:inline-block; vertical-align:middle; margin:0 5px; font-size: 10px;}
+main .detailArea .pageBox a img{ height:14px;}
+main .detailArea .pageBox a.number{ font-size:14px; color:#414141; padding:0 7px; margin:0; border-right:1px solid #ddd; line-height:1;}
+main .detailArea .pageBox a.number:hover,
+main .detailArea .pageBox a.number.on{ font-weight:600; color:#dc2f00;}
 main .detailArea .bottomBtn{ margin-top:40px; text-align:center;}
 main .detailArea .bottomBtn a{ display:inline-block; vertical-align:middle; width:150px; line-height:40px; font-size:16px; color:#fff; text-align:center; background-color:#dc2f00; border-radius:8px; margin:0 5px;}
 main .detailArea .bottomBtn a.blue{ background-color:#0090c5}
