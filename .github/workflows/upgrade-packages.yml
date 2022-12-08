@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   
   schedule:
-    - cron: "58 2 * * *"
+    - cron: "10 4 * * *"
     
 jobs:
   upgrade-packages:
@@ -22,7 +22,7 @@ jobs:
           node-version: '16.x'
 
       - name: Upgrade packages 🔀
-        run: yarn upgrade --latest
+        run: npm update
 
       - name: Commit and create PR 🔀
         uses: peter-evans/create-pull-request@v3
